@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --main_bg_color: #ffffff;
+  --secondary_bg_color: #f5f5f3;
+  --main_font_color: #262626;
+  --secondary_font_color: #767676;
+  --footer_text_color: #6d6d6d;
+  --DMsans: "DM Sans", sans-serif;
+}
+
+@layer base {
+  @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900;9..40,1000&display=swap");
+  * {
+    @apply m-0 p-0 outline-none box-border;
+  }
+  ul,
+  ol,
+  li {
+    @apply list-none;
+  }
+  a {
+    @apply no-underline inline-block;
+  }
+
+  img {
+    @apply align-middle;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  img,
+  span,
+  ul,
+  ol,
+  li,
+  p,
+  a,
+  div {
+    @apply m-0 p-0;
+  }
+}
+
+@layer components {
+  .menuItem {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: var(--DMsans);
+    color: var(--secondary_font_color);
+  }
+}
