@@ -49,7 +49,6 @@ const SaleInfo = () => {
                     discountDetilsFast={` Up to`}
                     discountDetilsLast={`sale for all electronics! `}
                     discountAmount="50%"
-                    btnTitle="hello Now"
                   />
                 </div>
               </Flex>
