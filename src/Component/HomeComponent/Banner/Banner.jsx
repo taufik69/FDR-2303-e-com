@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
-import BannerImage from "../../assets/banner.png";
+import BannerImage from "../../../assets/banner.png";
 import "slick-carousel/slick/slick.css";
 const Banner = () => {
   const [currentSlide, setcurrentSlide] = useState(1);

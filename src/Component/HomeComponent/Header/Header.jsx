@@ -1,6 +1,6 @@
 import React from "react";
-import Logo from "../../assets/Logo.png";
-import Flex from "../CommonConponent/Flex";
+import Logo from "../../../assets/Logo.png";
+import Flex from "../../CommonConponent/Flex";
 const Header = () => {
   return (
     <>

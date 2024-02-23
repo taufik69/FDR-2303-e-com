@@ -1,7 +1,7 @@
 import React from "react";
-import Flex from "../CommonConponent/Flex";
+import Flex from "../../CommonConponent/Flex";
 import { HiOutlineBars3BottomLeft } from "react-icons/hi2";
-import Serach from "../CommonConponent/Serach";
+import Serach from "../../CommonConponent/Serach";
 import { FaUser, FaShoppingCart } from "react-icons/fa";
 import { TiArrowSortedDown } from "react-icons/ti";
 

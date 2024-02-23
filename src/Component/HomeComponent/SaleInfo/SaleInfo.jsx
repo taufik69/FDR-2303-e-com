@@ -1,9 +1,9 @@
 import React from "react";
-import Flex from "../CommonConponent/Flex.jsx";
-import saleLeft from "../../assets/Image1.png";
-import electronic from "../../assets/electronicImage.png";
-import FurnitureImage from "../../assets/FurnitureImage.png";
-import Overlay from "../CommonConponent/Overlay.jsx";
+import Flex from "../../CommonConponent/Flex.jsx";
+import saleLeft from "../../../assets/Image1.png";
+import electronic from "../../../assets/electronicImage.png";
+import FurnitureImage from "../../../assets/FurnitureImage.png";
+import Overlay from "../../CommonConponent/Overlay.jsx";
 
 const SaleInfo = () => {
   return (
