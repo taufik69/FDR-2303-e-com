@@ -2,13 +2,14 @@ import React from "react";
 
 import Flex from "./Flex";
 import { FaHeart } from "react-icons/fa";
-import WatchImg from "../../assets/p.png";
-const Product = ({ colorVariant, bagze, image }) => {
+
+const Product = ({ colorVariant, bagze, imga }) => {
   return (
     <div className="w-full">
       <div className="pb-6 relative  overflow-hidden group cursor-pointer ">
         <div className="absolute top-4 left-4 rounded-sm">{bagze}</div>
-        <img src={WatchImg} alt={WatchImg} />
+        {/* <img src="../../../public/p.png" alt={WatchImg} /> */}
+        <img src={imga} alt={imga} />
         {/* -----------overlay--------  */}
         <div className="absolute bg-purple-100 w-full -bottom-[40%]  transition-all left-0 group-hover:bottom-6">
           <div className="flex justify-end flex-col items-end p-6">

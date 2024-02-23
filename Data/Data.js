@@ -1,3 +1,5 @@
+import img1 from "../src/assets/p.png";
+import img2 from "../src/assets/product2.png";
 export const ProductData = [
   {
     id: 1,
@@ -5,6 +7,7 @@ export const ProductData = [
     price: "$44.00",
     bazge: true,
     color: false,
+    img: img1,
   },
   {
     id: 2,
@@ -12,6 +15,7 @@ export const ProductData = [
     price: "$54.00",
     bazge: true,
     color: true,
+    img: img2,
   },
 
   {
@@ -20,6 +24,7 @@ export const ProductData = [
     price: "$44.00",
     bazge: false,
     color: true,
+    img: img1,
   },
 
   {
@@ -28,5 +33,6 @@ export const ProductData = [
     price: "$44.00",
     bazge: true,
     color: false,
+    img: img1,
   },
 ];

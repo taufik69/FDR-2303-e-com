@@ -18,6 +18,7 @@ const NewArival = () => {
             {Allproduct?.map((item) => (
               <div key={item.id}>
                 <Product
+                  imga={item.img}
                   colorVariant={item.color === true ? true : false}
                   bagze={
                     item.bazge == true ? (
