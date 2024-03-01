@@ -10,7 +10,7 @@ const MenuBar = () => {
     <>
       <div className="bg-secondary_bg_color py-5">
         <div className="container">
-          <Flex className={"gap-x-3 justify-between"}>
+          <Flex className={"gap-x-3 justify-between items-center"}>
             <Flex className={"gap-x-2"}>
               <HiOutlineBars3BottomLeft className="text-2xl " />
               <p className="menuItem cursor-pointer text-main_font_color">

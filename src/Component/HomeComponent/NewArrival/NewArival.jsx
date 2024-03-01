@@ -75,14 +75,13 @@ const settings = {
 };
 
 const NewArival = ({ headingTitle, pdata }) => {
- 
   const [Allproduct, setAllproduct] = useState(pdata);
 
   return (
     <>
       <div className="py-[128px]">
         <div className="container">
-          <h1 className="font-bold text-main_font_color font-DMsans text-[39px]">
+          <h1 className="font-bold text-main_font_color font-DMsans text-[39px] mb-12">
             {headingTitle ? headingTitle : "Title Missing"}
           </h1>
           <Slider {...settings}>

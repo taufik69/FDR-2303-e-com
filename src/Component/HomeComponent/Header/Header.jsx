@@ -5,8 +5,8 @@ const Header = () => {
   return (
     <>
       <div className="py-8 bg-main_bg_color">
-        <div className="container ">
-          <Flex className="justify-between">
+        <div className="container">
+          <Flex className="justify-between items-center ">
             <div>
               <picture>
                 <img src={Logo} alt={Logo} />

@@ -11,7 +11,11 @@ const PhoneOfTheYear = () => {
             <img src={clock} alt={clock} />
           </div>
           <div className="w-full">
-            <div className={"flex flex-col items-start gap-y-5"}>
+            <div
+              className={
+                "flex flex-col items-start justify-center h-full gap-y-5"
+              }
+            >
               <h2>Phone of the year</h2>
               <p className="max-w-[511px]">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
