@@ -9,7 +9,6 @@ import bs2 from "../src/assets/bestSellilng/b2.png";
 import bs3 from "../src/assets/bestSellilng/b3.png";
 import bs4 from "../src/assets/bestSellilng/b4.png";
 
-
 export const ProductData = [
   {
     id: 1,

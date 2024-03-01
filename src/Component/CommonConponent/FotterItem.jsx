@@ -9,7 +9,10 @@ const FotterItem = ({ allitem = ["one", "two", "three"], title }) => {
         </h2>
         <ul>
           {allitem?.map((item, index) => (
-            <li className="text-footer_text_color font-DMsans text-sm py-2">
+            <li
+              className="text-footer_text_color font-DMsans text-sm py-2"
+              key={index}
+            >
               <a href="#">
                 {title.toLocaleLowerCase() === "SHOP".toLocaleLowerCase()
                   ? item + (index + 1)
