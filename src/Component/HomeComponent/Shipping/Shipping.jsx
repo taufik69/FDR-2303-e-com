@@ -3,7 +3,11 @@ import Flex from "../../CommonConponent/Flex";
 import ShipingItem from "../../CommonConponent/ShipingItem";
 import { FaTruck } from "react-icons/fa6";
 const Shipping = () => {
-
+  const data = [
+    { id: 1, icon: "<FaTruck />", title: "hello" },
+    { id: 1, icon: "<FaTruck />", title: "hello" },
+    { id: 1, icon: "<FaTruck />", title: "hello" },
+  ];
   return (
     <>
       <div className="mt-5 ">
