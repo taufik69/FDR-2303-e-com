@@ -2,29 +2,14 @@ import React, { useEffect, useState } from "react";
 import Logo from "../../../assets/Logo.png";
 import Flex from "../../CommonConponent/Flex";
 import { FaBars } from "react-icons/fa6";
+import { RxCross2 } from "react-icons/rx";
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
-
-  useEffect(() => {
-    function resizeBody() {
-      if (window.innerWidth > 730) {
-        setShowNav(true);
-      } else {
-        setShowNav(false);
-      }
-    }
-    window.addEventListener("resize", resizeBody);
-    resizeBody();
-  }, []);
-
-  // HandleNavToggle funtionality
-  const HandleNavToggle = () => {
-    setShowNav(!showNav);
-  };
+  // andleNavToggle funtionality
 
   return (
     <>
-      <div className="py-8 bg-main_bg_color  px-5  sm:px-0">
+      <div className="py-8 bg-main_bg_color  px-5 ">
         <div className="container">
           <Flex className="justify-between items-center ">
             <div>
@@ -32,10 +17,16 @@ const Header = () => {
                 <img src={Logo} alt={Logo} />
               </picture>
             </div>
-            <div>
-              {showNav && (
-                <div>
-                  <Flex>
+            <div className="mb-10 sm:mb-0">
+              <div>
+                <Flex>
+                  <ul
+                    className={`absolute lg:static lg:flex ${
+                      showNav
+                        ? " top-0 left-0 bg-green-400"
+                        : " top-0 z-10 left-[-100%]  text-white "
+                    }`}
+                  >
                     <li>
                       <a
                         href="#"
@@ -64,16 +55,16 @@ const Header = () => {
                         Journal
                       </a>
                     </li>
-                  </Flex>
-                </div>
-              )}
+                  </ul>
+                </Flex>
+              </div>
             </div>
             <div>
               <span
-                className="cursor-pointer md:hidden z-10"
-                onClick={HandleNavToggle}
+                className="cursor-pointer lg:hidden z-10"
+                onClick={() => setShowNav(!showNav)}
               >
-                <FaBars />
+                {showNav ? <RxCross2 /> : <FaBars />}
               </span>
             </div>
           </Flex>
