@@ -21,10 +21,10 @@ const Header = () => {
               <div>
                 <Flex>
                   <ul
-                    className={`absolute lg:static lg:flex ${
+                    className={`absolute md:static md:flex md:gap-x-5 ${
                       showNav
-                        ? " top-0 left-0 bg-green-400"
-                        : " top-0 z-10 left-[-100%]  text-white "
+                        ? " top-20 left-0 bg-green-400 w-full text-center z-10 transition-all"
+                        : " top-20 z-10 left-[-100%]  text-white "
                     }`}
                   >
                     <li>
@@ -61,7 +61,7 @@ const Header = () => {
             </div>
             <div>
               <span
-                className="cursor-pointer lg:hidden z-10"
+                className="cursor-pointer md:hidden z-10"
                 onClick={() => setShowNav(!showNav)}
               >
                 {showNav ? <RxCross2 /> : <FaBars />}
