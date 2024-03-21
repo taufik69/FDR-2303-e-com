@@ -11,12 +11,12 @@ const Shipping = () => {
   ];
   return (
     <>
-      <div className="mt-5 ">
+      <div className="mt-5 px-5  px-sm-0 ">
         <div className="container">
           <Flex className={"justify-between items-center"}>
             {data?.map((item) => (
               <ShipingItem
-                className={"flex gap-x-3 items-center"}
+                className={"flex gap-x-3 items-center text-[13px]"}
                 key={item.id}
               >
                 <span>{item.icon}</span>

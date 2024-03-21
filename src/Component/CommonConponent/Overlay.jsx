@@ -11,10 +11,10 @@ const Overlay = ({
   return (
     <>
       <div className={`absolute ${className}`}>
-        <h3 className="text-main_font_color font-bold font-DMsans text-[39px]">
+        <h3 className="text-main_font_color font-bold font-DMsans text-[39px] ">
           {title ? title : "Phones Sale"}
         </h3>
-        <p className="mt-12 text-main_font_color font-normal font-DMsans text-base opacity-75 mb-12">
+        <p className="mt-3   sm:mt-12  text-main_font_color font-normal font-DMsans text-base opacity-75 mb-2 sm:mb-12">
           {discountDetilsFast}
           <span className="font-bold text-4xl align-middle">
             {discountAmount}

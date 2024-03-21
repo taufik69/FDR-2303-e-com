@@ -8,11 +8,11 @@ const Serach = ({ placeHolder }) => {
         <div className="relative">
           <input
             type="text"
-            className="w-[601px] py-5 px-5 rounded-sm"
+            className="w-[120px] sm:w-[401px] py-5 px-5 rounded-sm"
             placeholder={placeHolder}
           />
 
-          <div className="absolute top-1/2 -translate-y-2/4 right-5 text-2xl ">
+          <div className="absolute top-1/2 -translate-y-2/4 right-5 text-2xl hidden sm:block">
             <FcSearch />
           </div>
         </div>
