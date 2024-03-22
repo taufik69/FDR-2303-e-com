@@ -8,19 +8,19 @@ import { TiArrowSortedDown } from "react-icons/ti";
 const MenuBar = () => {
   return (
     <>
-      <div className="bg-secondary_bg_color py-5">
+      <div className="bg-secondary_bg_color py-5 px-4 sm:px-0">
         <div className="container">
           <Flex className={"gap-x-3 justify-between items-center"}>
             <Flex className={"gap-x-2"}>
               <HiOutlineBars3BottomLeft className="text-2xl " />
-              <p className="menuItem cursor-pointer text-main_font_color">
+              <p className="hidden md:block menuItem cursor-pointer text-main_font_color">
                 Shop by Category
               </p>
             </Flex>
             <Serach placeHolder="Search Products" />
 
-            <Flex className={"gap-x-5"}>
-              <Flex className={"gap-x-2"}>
+            <Flex className={"gap-x-2 sm:gap-x-5"}>
+              <Flex className={" gap-x-1 sm:gap-x-2"}>
                 <div>
                   <FaUser />
                 </div>
