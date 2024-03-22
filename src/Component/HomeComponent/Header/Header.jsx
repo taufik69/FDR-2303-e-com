@@ -1,29 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Logo from "../../../assets/Logo.png";
 import Flex from "../../CommonConponent/Flex";
-import { FaBars } from "react-icons/fa";
+import { FaBars } from "react-icons/fa6";
+import { RxCross2 } from "react-icons/rx";
 const Header = () => {
-  const [showNav, setshowNav] = useState(true);
-  const [togglebtn, setTogglebtn] = useState(true);
-  const HandleBar = () => {
-    setTogglebtn(!togglebtn);
+  const [isShow, setisShow] = useState(false);
+
+  // cHandleNavIcon funtionality
+  const HandleNavIcon = () => {
+    setisShow(!isShow);
   };
 
-  useEffect(() => {
-    const resiezeWindow = () => {
-      console.log(window.innerWidth);
-      if (window.innerWidth > 800) {
-        setshowNav(true);
-      } else {
-        setshowNav(false);
-      }
-    };
-
-    window.addEventListener("resize", resiezeWindow);
-  }, [showNav]);
   return (
     <>
-      <div className="py-8 bg-main_bg_color">
+      <div className="py-8 bg-main_bg_color px-4 px-sm-0">
         <div className="container ">
           <Flex className="justify-between items-center ">
             <div>
@@ -31,48 +21,15 @@ const Header = () => {
                 <img src={Logo} alt={Logo} />
               </picture>
             </div>
-            {showNav && (
-              <div>
-                <Flex className={" flex flex-row gap-x-10"}>
-                  <li>
-                    <a
-                      href="#"
-                      className="menuItem transition-all hover:text-main_font_color hover:font-bold"
-                    >
-                      Home
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="menuItem  ">
-                      Shop
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="menuItem  ">
-                      About
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="menuItem ">
-                      Contacts
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="menuItem ">
-                      Journal
-                    </a>
-                  </li>
-                </Flex>
-              </div>
-            )}
-            <div className="" onClick={HandleBar}>
-              <FaBars />
-            </div>
-          </Flex>
 
-          {togglebtn && (
             <div>
-              <Flex className={" flex-col gap-x-10"}>
+              <Flex
+                className={`absolute    sm:static flex-col  sm:flex-row sm:gap-x-5 ${
+                  isShow
+                    ? "left-0  bg-gray-300 w-full z-10 text-center top-[72px] transition-all"
+                    : " left-[-100%]  w-full z-10 text-center top-[72px]"
+                }`}
+              >
                 <li>
                   <a
                     href="#"
@@ -103,7 +60,11 @@ const Header = () => {
                 </li>
               </Flex>
             </div>
-          )}
+
+            <div className=" cursor-pointer  sm:hidden" onClick={HandleNavIcon}>
+              {isShow === true ? <RxCross2 /> : <FaBars />}
+            </div>
+          </Flex>
         </div>
       </div>
     </>
