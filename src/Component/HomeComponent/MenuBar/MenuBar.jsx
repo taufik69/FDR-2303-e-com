@@ -54,7 +54,7 @@ const MenuBar = () => {
     return () => {
       document.addEventListener("click", handleClickOutside);
     };
-  });
+  }, []);
 
   return (
     <>
