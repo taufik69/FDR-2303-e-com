@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Flex from "../../CommonConponent/Flex";
 import { HiOutlineBars3BottomLeft } from "react-icons/hi2";
 import Serach from "../../CommonConponent/Serach";
@@ -10,10 +10,12 @@ const MenuBar = () => {
   const [shopCatagory, setShopCatagory] = useState(false);
   const [HumanCatagoriesShow, setHumanCatagoriesShow] = useState(false);
   const [cartCatagoryShow, setcartCatagoryShow] = useState(false);
+  const menuRef = useRef(null);
 
   const HandleClick = () => {
-    if (HumanCatagoriesShow) {
+    if (HumanCatagoriesShow || cartCatagoryShow) {
       setHumanCatagoriesShow(false);
+      setcartCatagoryShow(false);
     }
     setShopCatagory(!shopCatagory);
   };
@@ -21,8 +23,9 @@ const MenuBar = () => {
   // HanldeAcount funtionality
   const HanldeAcount = (e) => {
     e.stopPropagation();
-    if (shopCatagory) {
+    if (shopCatagory || cartCatagoryShow) {
       setShopCatagory(false);
+      setcartCatagoryShow(false);
     }
     setHumanCatagoriesShow(!HumanCatagoriesShow);
   };
@@ -36,9 +39,26 @@ const MenuBar = () => {
     }
     setcartCatagoryShow(!cartCatagoryShow);
   };
+
+  // Make funtionality to click outside then off the all dropdown
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setHumanCatagoriesShow(false);
+        setcartCatagoryShow(false);
+        setShopCatagory(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.addEventListener("click", handleClickOutside);
+    };
+  });
+
   return (
     <>
-      <div className="bg-secondary_bg_color py-5 px-4 sm:px-0">
+      <div className="bg-secondary_bg_color py-5 px-4 sm:px-0" ref={menuRef}>
         <div className="container">
           <Flex className={"gap-x-3 justify-between items-center"}>
             <Flex className={"gap-x-2"}>
@@ -91,7 +111,7 @@ const MenuBar = () => {
                   <ul
                     className={`absolute  ${
                       HumanCatagoriesShow
-                        ? "top-40 text-center left-0 bg-blue-300 z-10 w-full rounded-sm md:w-1/3"
+                        ? "top-40 text-center right-0 bg-blue-300 z-10 w-full rounded-sm md:w-1/3"
                         : null
                     }`}
                   >
