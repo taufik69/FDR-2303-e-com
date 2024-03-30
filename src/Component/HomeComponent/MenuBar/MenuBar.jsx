@@ -5,11 +5,14 @@ import Serach from "../../CommonConponent/Serach";
 import { FaUser, FaShoppingCart } from "react-icons/fa";
 import { BiChevronDown } from "react-icons/bi";
 import { BiChevronUp } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const MenuBar = () => {
-  // HandleBar funtionality implementation
-  const HandleBar = () => {
-    alert("aklshdf");
+  const [catagory, setcatagory] = useState(false);
+  const [account, setaccount] = useState(false);
+
+  const HanldeAccount = () => {
+    setaccount(!account);
   };
   return (
     <>
@@ -20,8 +23,28 @@ const MenuBar = () => {
               <div>
                 <HiOutlineBars3BottomLeft
                   className="cursor-pointer tex-4xl"
-                  onClick={HandleBar}
+                  onClick={() => setcatagory(!catagory)}
                 />
+
+                <div className="">
+                  <ul
+                    className={`absolute z-10 sm:static top-[170px]  transition-all bg-black w-[100vw] text-main_bg_color py-5 divide-y divide-solid ${
+                      catagory ? "left-0" : "left-[-120%]"
+                    }`}
+                  >
+                    <li className="p-5 ">
+                      <Link to={"/"}> Accesories </Link>
+                    </li>
+
+                    <li className="p-5"> Accesories</li>
+
+                    <li className="p-5"> Accesories</li>
+
+                    <li className="p-5"> Accesories</li>
+                    <li className="p-5"> Accesories</li>
+                    <li className="p-5"> Accesories</li>
+                  </ul>
+                </div>
               </div>
               <p className="hidden md:block menuItem cursor-pointer text-main_font_color">
                 Shop by Category
@@ -30,15 +53,33 @@ const MenuBar = () => {
             <Serach placeHolder="Search Products" />
 
             <Flex className={"gap-x-2 sm:gap-x-5"}>
-              <div>
+              <div className="relative">
                 <Flex
                   className={"gap-x-1 sm:gap-x-2 cursor-pointer items-center"}
                 >
-                  <div>
-                    <FaUser />
+                  <div onClick={HanldeAccount} className="flex">
+                    <div>
+                      <FaUser />
+                    </div>
+                    <div>
+                      <BiChevronDown />
+                    </div>
                   </div>
+
                   <div>
-                    <BiChevronDown />
+                    <ul
+                      className={`w-[100vw] b text-white absolute lg:static top-10 left-[100%] text-center z-20  transition-all bg-black  text-main_bg_color py-5 divide-y divide-solid ${
+                        account ? "right-[-40px]" : null
+                      }`}
+                    >
+                      <li className="p-5">
+                        <Link to={"/"}> My Account</Link>
+                      </li>
+
+                      <li className="p-5">
+                        <Link to={"/"}> Log Out</Link>
+                      </li>
+                    </ul>
                   </div>
                 </Flex>
               </div>
