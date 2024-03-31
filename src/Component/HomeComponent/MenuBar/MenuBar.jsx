@@ -162,7 +162,3 @@ const MenuBar = () => {
 };
 
 export default MenuBar;
-// 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
-// https://github.com/taufik69/FDR-2303-e-com.git
-// git remote add origin https://<access-token-name>:<access-token>@gitlab.com/myuser/myrepo.git
-// git remote set-url origin https://fdroreby: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@github.com/taufik69/FDR-2303-e-com.git
