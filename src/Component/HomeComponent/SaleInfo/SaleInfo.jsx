@@ -8,15 +8,15 @@ import Overlay from "../../CommonConponent/Overlay.jsx";
 const SaleInfo = () => {
   return (
     <>
-      <div className="py-32">
+      <div className="sm:py-32 py-10">
         <div className="container">
-          <Flex className={"gap-x-10"}>
+          <Flex className={"gap-x-10 flex-col md:flex-row gap-y-4"}>
             <div className="w-full relative">
               <picture>
                 <img src={saleLeft} alt={saleLeft} />
               </picture>
               <Overlay
-                className={"bottom-16  left-16"}
+                className={"top-3 left-2 md:bottom-16  md:left-16"}
                 title="Phones Sale"
                 discountDetilsFast={` Up to`}
                 discountDetilsLast={` sale for all phones!`}
@@ -24,14 +24,16 @@ const SaleInfo = () => {
                 btnTitle="Shop Now"
               />
             </div>
-            <div className="w-full ">
+            <div className="w-full">
               <Flex className={"flex-col gap-y-11"}>
                 <div className="w-full relative ">
                   <picture>
                     <img src={electronic} alt={electronic} />
                   </picture>
                   <Overlay
-                    className={" top-1/2 -translate-y-1/2  left-16"}
+                    className={
+                      "-top-[8px] left-2  sm:top-1/2 sm:-translate-y-1/2  sm:left-16"
+                    }
                     title="Electronics Sale"
                     discountDetilsFast={` Up to`}
                     discountDetilsLast={`sale for all electronics! `}
@@ -44,7 +46,7 @@ const SaleInfo = () => {
                     <img src={FurnitureImage} alt={FurnitureImage} />
                   </picture>
                   <Overlay
-                    className={" top-1/2 -translate-y-1/2  left-16"}
+                    className={"top-1/2 -translate-y-1/2  sm:left-16  left-2"}
                     title="Furniture Offer"
                     discountDetilsFast={` Up to`}
                     discountDetilsLast={`sale for all electronics! `}

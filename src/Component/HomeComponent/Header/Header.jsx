@@ -1,68 +1,71 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../../assets/Logo.png";
 import Flex from "../../CommonConponent/Flex";
 import { FaBars } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 const Header = () => {
-  const [isShow, setisShow] = useState(false);
-
-  // cHandleNavIcon funtionality
-  const HandleNavIcon = () => {
-    setisShow(!isShow);
-  };
+  const [showNav, setShowNav] = useState(false);
+  // andleNavToggle funtionality
 
   return (
     <>
-      <div className="py-8 bg-main_bg_color px-4 px-sm-0">
-        <div className="container ">
+      <div className="py-8 bg-main_bg_color  px-5 ">
+        <div className="container">
           <Flex className="justify-between items-center ">
             <div>
               <picture>
                 <img src={Logo} alt={Logo} />
               </picture>
             </div>
-
-            <div>
-              <Flex
-                className={`absolute    sm:static flex-col  sm:flex-row sm:gap-x-5 ${
-                  isShow
-                    ? "left-0  bg-gray-300 w-full z-10 text-center top-[72px] transition-all"
-                    : " left-[-100%]  w-full z-10 text-center top-[72px]"
-                }`}
-              >
-                <li>
-                  <a
-                    href="#"
-                    className="menuItem transition-all hover:text-main_font_color hover:font-bold"
+            <div className="mb-10 sm:mb-0">
+              <div>
+                <Flex>
+                  <ul
+                    className={`absolute md:static md:flex md:gap-x-5 ${
+                      showNav
+                        ? " top-20 left-0 bg-green-400 w-full text-center z-10 transition-all"
+                        : " top-20 z-10 left-[-100%]  text-white "
+                    }`}
                   >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="menuItem  ">
-                    Shop
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="menuItem  ">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="menuItem ">
-                    Contacts
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="menuItem ">
-                    Journal
-                  </a>
-                </li>
-              </Flex>
+                    <li>
+                      <a
+                        href="#"
+                        className="menuItem transition-all hover:text-main_font_color hover:font-bold"
+                      >
+                        Home
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="menuItem">
+                        Shop
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="menuItem">
+                        About
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="menuItem">
+                        Contacts
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="menuItem">
+                        Journal
+                      </a>
+                    </li>
+                  </ul>
+                </Flex>
+              </div>
             </div>
-
-            <div className=" cursor-pointer  sm:hidden" onClick={HandleNavIcon}>
-              {isShow === true ? <RxCross2 /> : <FaBars />}
+            <div>
+              <span
+                className="cursor-pointer md:hidden z-10"
+                onClick={() => setShowNav(!showNav)}
+              >
+                {showNav ? <RxCross2 /> : <FaBars />}
+              </span>
             </div>
           </Flex>
         </div>

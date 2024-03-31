@@ -19,7 +19,7 @@ function SampleNextArrow(props) {
         height: "40px",
         borderRadius: "50%",
         position: "absolute",
-        left: "-20px",
+        left: "20px",
         top: "50%",
         transform: "translateY(-100%)",
         zIndex: "2",
@@ -55,7 +55,7 @@ function SamplePrevArrow(props) {
       }}
       onClick={onClick}
     >
-      <div className="flex items-center justify-center h-full ">
+      <div className="flex items-center justify-center h-full  ">
         <HiArrowLongRight className="text-white" />
       </div>
     </div>
@@ -80,21 +80,6 @@ const settings = {
         slidesToScroll: 3,
         infinite: true,
         dots: true,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        initialSlide: 2,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
       },
     },
   ],
