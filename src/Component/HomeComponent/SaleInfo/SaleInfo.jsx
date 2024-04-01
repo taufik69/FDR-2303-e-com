@@ -8,15 +8,19 @@ import Overlay from "../../CommonConponent/Overlay.jsx";
 const SaleInfo = () => {
   return (
     <>
-      <div className="sm:py-32 py-10">
+      <div className="sm:py-10 py-10">
         <div className="container">
-          <Flex className={"gap-x-10 flex-col md:flex-row gap-y-4"}>
+          <Flex
+            className={
+              "sm:gap-x-5 md:gap-x-6 lg:gap-x-10 flex-col sm:flex-row  gap-y-4"
+            }
+          >
             <div className="w-full relative">
               <picture>
                 <img src={saleLeft} alt={saleLeft} />
               </picture>
               <Overlay
-                className={"top-3 left-2 md:bottom-16  md:left-16"}
+                className={"bottom-5 sm:bottom-5 md:bottom-16 left-5 "}
                 title="Phones Sale"
                 discountDetilsFast={` Up to`}
                 discountDetilsLast={` sale for all phones!`}
@@ -25,15 +29,13 @@ const SaleInfo = () => {
               />
             </div>
             <div className="w-full">
-              <Flex className={"flex-col gap-y-11"}>
+              <Flex className={"flex-col gap-y-4 lg:gap-y-6 xl:gap-y-10"}>
                 <div className="w-full relative ">
                   <picture>
                     <img src={electronic} alt={electronic} />
                   </picture>
                   <Overlay
-                    className={
-                      "-top-[8px] left-2  sm:top-1/2 sm:-translate-y-1/2  sm:left-16"
-                    }
+                    className={" bottom-3 sm:top-1 left-2 "}
                     title="Electronics Sale"
                     discountDetilsFast={` Up to`}
                     discountDetilsLast={`sale for all electronics! `}
@@ -46,7 +48,8 @@ const SaleInfo = () => {
                     <img src={FurnitureImage} alt={FurnitureImage} />
                   </picture>
                   <Overlay
-                    className={"top-1/2 -translate-y-1/2  sm:left-16  left-2"}
+                    btnTitle="Shop Now"
+                    className={"top-1/2 -translate-y-1/2   left-2"}
                     title="Furniture Offer"
                     discountDetilsFast={` Up to`}
                     discountDetilsLast={`sale for all electronics! `}
