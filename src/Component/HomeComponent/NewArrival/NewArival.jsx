@@ -66,23 +66,11 @@ const settings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 4,
-  dots: false,
+  slidesToShow: 3,
+  slidesToScroll: 3,
   arrows: true,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true,
-      },
-    },
-  ],
 };
 
 const NewArival = ({ headingTitle, pdata }) => {
