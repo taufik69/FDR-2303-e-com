@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Flex from "../../CommonConponent/Flex";
 import { HiOutlineBars3BottomLeft } from "react-icons/hi2";
 import Serach from "../../CommonConponent/Serach";
@@ -14,8 +14,7 @@ const MenuBar = () => {
   const [showCatagories, setshowCatagories] = useState(false);
   const [showAccount, setshowAccount] = useState(false);
   const [cart, setcart] = useState(false);
-  const menuRef = useRef();
-
+  const MenuRef = useRef();
   const HandleCatagory = () => {
     setshowAccount(false);
     setshowAccount(false);
@@ -35,11 +34,21 @@ const MenuBar = () => {
     setcart(!cart);
   };
 
-  // funtionality with ref
-  console.log(menuRef.current);
+  // Menu Ref funtionality
+
+  useEffect(() => {
+    window.addEventListener("click", (e) => {
+      if (!MenuRef.current.contains(e.target)) {
+        setshowCatagories(false);
+        setshowAccount(false);
+        setcart(false);
+      }
+    });
+  }, []);
+
   return (
     <>
-      <div className="bg-secondary_bg_color py-5 px-4 px-sm-0" ref={menuRef}>
+      <div className="bg-secondary_bg_color py-5 px-4 px-sm-0" ref={MenuRef}>
         <div className="container">
           <Flex className={"gap-x-3 justify-between items-center"}>
             <Flex className={"gap-x-2"}>
