@@ -16,8 +16,12 @@ const Home = () => {
       <SaleInfo />
       <NewArival headingTitle="New Arrival" pdata={ProductData} />
       <NewArival headingTitle="Our Best Selling" pdata={BestSellingProduct} />
-      <PhoneOfTheYear />
-      <NewArival headingTitle="Special Offers" pdata={SpeacialOffer} />
+      <div className="py-5 lg:py-0">
+        <PhoneOfTheYear />
+      </div>
+      <div className="pb-10 lg:pb-0">
+        <NewArival headingTitle="Special Offers" pdata={SpeacialOffer} />
+      </div>
     </div>
   );
 };

@@ -82,7 +82,7 @@ const settings = {
       },
     },
     {
-      breakpoint: 600,
+      breakpoint: 800,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
@@ -104,7 +104,7 @@ const NewArival = ({ headingTitle, pdata }) => {
 
   return (
     <>
-      <div className="py-4 sm:py-[128px] px-4 ">
+      <div className="py-4 lg:py-14 xl:py-[128px] px-4 ">
         <div className="container">
           <h1 className="font-bold text-main_font_color font-DMsans text-[39px] mb-12">
             {headingTitle ? headingTitle : "Title Missing"}
