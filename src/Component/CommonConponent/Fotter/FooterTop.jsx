@@ -4,7 +4,11 @@ import Flex from "../Flex";
 import Fotterlogo from "../../../assets/Logo.png";
 const FooterTop = () => {
   return (
-    <Flex className={"justify-between items-start"}>
+    <Flex
+      className={
+        "flex flex-wrap lg:flex-nowrap justify-around sm:justify-between sm:px-5 xl:px-0 lg:items-start lg:px-5 gap-y-10  lg:gap-y-0  items-start sm:items-center"
+      }
+    >
       <FotterItem
         title={"Menu"}
         allitem={["Home", "Shop ", "About", "Contact", "Journal"]}

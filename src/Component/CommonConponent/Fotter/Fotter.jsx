@@ -8,7 +8,9 @@ const Fotter = () => {
       <div>
         <div className="container">
           <FooterTop />
-          <FooterBottom />
+          <div className="py-5 sm:py-0">
+            <FooterBottom />
+          </div>
         </div>
       </div>
     </>
