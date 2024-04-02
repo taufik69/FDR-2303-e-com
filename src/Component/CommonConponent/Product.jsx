@@ -5,7 +5,7 @@ import { FaHeart } from "react-icons/fa";
 
 const Product = ({ colorVariant, bagze, imga }) => {
   return (
-    <div className="px-10  w-full ">
+    <div className=" sm:px-10 w-full">
       <div className="pb-6 relative  overflow-hidden group cursor-pointer ">
         <div className="absolute top-4 left-4 rounded-sm">{bagze}</div>
 
