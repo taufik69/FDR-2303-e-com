@@ -143,3 +143,34 @@ export const SpeacialOffer = [
     discountOffter: "10%",
   },
 ];
+
+export const shopCatagories = [
+  {
+    id: 1,
+    title: "catagories 1",
+    subcatagories: [{ id: 1, title: "subcatagories 1 " }],
+  },
+  {
+    id: 2,
+    title: "catagories 2",
+    subcatagories: [],
+  },
+
+  {
+    id: 3,
+    title: "catagories 3",
+    subcatagories: [],
+  },
+
+  {
+    id: 4,
+    title: "catagories 4",
+    subcatagories: [{ id: 4, title: "subcatagories 4 " }],
+  },
+
+  {
+    id: 5,
+    title: "catagories 5",
+    subcatagories: [],
+  },
+];

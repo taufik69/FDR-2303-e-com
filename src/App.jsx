@@ -8,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Shop from "./pages/Shop/Shop";
+<<<<<<< HEAD
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,6 +17,13 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path="/shop" element={<Shop />} />
       </Route>
+=======
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Home />} />
+      <Route path="/shop" element={<Shop />} />
+>>>>>>> main
     </Route>
   )
 );
