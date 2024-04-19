@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import ShopLeftItem from "../../CommonConponent/ShopLeftitem/ShopLeftItem";
-
+import Catagories from "../../CommonConponent/ShopLeftitem/Catagories";
+import { shopCatagories } from "../../../../Data/Data.js";
 const ShopLeft = ({ className }) => {
   return (
     <div className={className}>
-      <ShopLeftItem />
-      <ShopLeftItem />
-      <ShopLeftItem />
-      <ShopLeftItem />
+      <Catagories categoriesItem={shopCatagories} />
     </div>
   );
 };

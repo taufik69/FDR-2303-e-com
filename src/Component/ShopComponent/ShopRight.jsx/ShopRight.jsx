@@ -4,7 +4,6 @@ const ShopRight = ({ className }) => {
   useEffect(() => {
     const DataFetcher = async () => {
       const data = await axios.get("https://dummyjson.com/products");
-      console.log(data.data.products);
     };
 
     DataFetcher();
