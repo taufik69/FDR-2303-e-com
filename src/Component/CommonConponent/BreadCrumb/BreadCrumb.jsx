@@ -20,8 +20,9 @@ const BreadCrumb = () => {
         <MdKeyboardDoubleArrowRight />
         {BreadCrumbpathName.map((path, index) => {
           const isLast = index === BreadCrumbpathName.length - 1;
+          // const routeTo = `${BreadCrumbpathName.slice(0, index + 1)}`;
           breadCrumList += path;
-          console.log(breadCrumList);
+          // console.log(routeTo);
           return (
             <li key={path}>
               {isLast ? (
@@ -32,7 +33,7 @@ const BreadCrumb = () => {
                       : null
                   }`}
                 >
-                  {" "}
+                 
                   {path}
                 </Link>
               ) : (
