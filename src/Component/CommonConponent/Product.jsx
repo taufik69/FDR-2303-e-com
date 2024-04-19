@@ -11,7 +11,7 @@ const Product = ({ colorVariant, bagze, imga }) => {
 
         <img src={imga} alt={imga} className="w-full h-full object-cover" />
         {/* -----------overlay--------  */}
-        <div className="absolute bg-purple-100 w-full -bottom-[40%]  transition-all left-0 group-hover:bottom-6">
+        <div className="absolute bg-gray-100 w-full -bottom-[40%]  transition-all left-0 group-hover:bottom-6">
           <div className="flex justify-end flex-col items-end p-6">
             <div>
               <Flex className={"gap-x-5 items-center"}>

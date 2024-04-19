@@ -4,6 +4,7 @@ import ShopLeft from "../../Component/ShopComponent/ShopLeft/ShopLeft";
 import Flex from "../../Component/CommonConponent/Flex";
 import ShopRight from "../../Component/ShopComponent/ShopRight.jsx/ShopRight";
 
+
 const Shop = () => {
   return (
     <>
@@ -15,8 +16,8 @@ const Shop = () => {
           <BreadCrumb />
           <div className="py-20">
             <Flex>
-              <ShopLeft className="w-[25%] bg-green-700" />
-              <ShopRight className="w-[75%] bg-purple-500" />
+              <ShopLeft className="w-[25%] h-[100vh] bg-green-200" />
+              <ShopRight className="w-[75%] h-[100vh] bg-purple-500" />
             </Flex>
           </div>
         </div>
