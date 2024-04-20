@@ -174,3 +174,20 @@ export const shopCatagories = [
     subcatagories: [],
   },
 ];
+
+export const shopColor = [
+  { id: 1, color: "262626", title: "color 1" },
+  { id: 2, color: "FF8686", title: "color 2" },
+  { id: 3, color: "7ED321", title: "color 3" },
+  { id: 4, color: "B6B6B6", title: "color 4" },
+  { id: 5, color: "15CBA5", title: "color 5" },
+];
+
+export const Brand = [
+  { id: 1, title: "brand 1" },
+  { id: 2, title: "brand 2" },
+  { id: 3, title: "brand 3" },
+  { id: 4, title: "brand 4" },
+  { id: 5, title: "brand 5" },
+  { id: 6, title: "brand 1" },
+];
