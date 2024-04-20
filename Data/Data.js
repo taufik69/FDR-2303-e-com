@@ -8,6 +8,7 @@ import bs1 from "../src/assets/bestSellilng/b1.png";
 import bs2 from "../src/assets/bestSellilng/b2.png";
 import bs3 from "../src/assets/bestSellilng/b3.png";
 import bs4 from "../src/assets/bestSellilng/b4.png";
+import { flushSync } from "react-dom";
 
 export const ProductData = [
   {
@@ -141,5 +142,55 @@ export const SpeacialOffer = [
     img: bs4,
     bazgeitem: true,
     discountOffter: "10%",
+  },
+];
+
+export const catagories = [
+  {
+    id: 1,
+    title: "Mobile",
+    subcatgores: [
+      { id: 1, title: "Xiamoi" },
+      { id: 2, title: "Oppo" },
+      { id: 3, title: "Vivo" },
+      { id: 4, title: "Samsung" },
+    ],
+  },
+  {
+    id: 2,
+    title: "Apple",
+    subcatgores: [
+      { id: 1, title: "Iphone 5" },
+      { id: 2, title: "Iphone 6" },
+      { id: 3, title: "Iphone 8" },
+      { id: 4, title: "Iphone 10" },
+      { id: 5, title: "Iphone 11" },
+      { id: 6, title: "Iphone 11 pro max" },
+    ],
+  },
+
+  {
+    id: 3,
+    title: "Desktop",
+    subcatgores: [
+      { id: 1, title: "Asus" },
+      { id: 2, title: "Walton" },
+      { id: 3, title: "Gigabyte" },
+    ],
+  },
+  {
+    id: 4,
+    title: "Accesoris",
+    subcatgores: [],
+  },
+
+  {
+    id: 5,
+    title: "Cloths",
+    subcatgores: [
+      { id: 1, title: "Mens" },
+      { id: 2, title: "Women's" },
+      { id: 3, title: "Baby" },
+    ],
   },
 ];

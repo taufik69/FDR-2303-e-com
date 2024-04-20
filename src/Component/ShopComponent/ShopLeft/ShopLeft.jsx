@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import ShopLeftItem from "../../CommonConponent/ShopLeftitem/ShopLeftItem";
+import ShopCatagories from "../../CommonConponent/ShopLeftitem/ShopCatagories";
+import { catagories } from "../../../../Data/Data.js";
 
 const ShopLeft = ({ className }) => {
   return (
     <div className={className}>
-      <ShopLeftItem />
-      <ShopLeftItem />
-      <ShopLeftItem />
-      <ShopLeftItem />
+      <ShopCatagories
+        catagoresData={catagories ? catagories : []}
+        shopLeftTitle={"Shop by Category"}
+      />
     </div>
   );
 };
