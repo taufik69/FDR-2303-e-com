@@ -8,7 +8,11 @@ const ShopLeft = ({ className }) => {
     <div className={className}>
       <Catagories categoriesItem={shopCatagories} />
       <ShopByColor color={true} shopColor={shopColor} title={"Shop by Color"} />
-      <ShopByColor color={true} shopColor={Brand} title={"Shop by Brand"} />
+      <ShopByColor
+        color={false}
+        shopColor={Brand && Brand}
+        title={"Shop by Brand"}
+      />
     </div>
   );
 };

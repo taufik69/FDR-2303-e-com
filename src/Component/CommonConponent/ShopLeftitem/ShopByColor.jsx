@@ -3,13 +3,12 @@ import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 import Flex from "../Flex";
 
 const ShopByColor = ({ color, shopColor, title }) => {
-  const [coloritem, setcolorItem] = useState(shopColor || []);
+  const [coloritem, setcolorItem] = useState(shopColor);
   const [show, setShow] = useState(false);
   const HanldeDropDown = () => {
     setShow(!show);
   };
 
-  console.log(coloritem);
   return (
     <div>
       <div onClick={HanldeDropDown}>
@@ -22,10 +21,13 @@ const ShopByColor = ({ color, shopColor, title }) => {
         coloritem?.map((item) => (
           <div className="px-5">
             <Flex className={"items-center gap-x-3"}>
-              <div
-                className={`h-4 w-4 rounded-full `}
-                style={{ backgroundColor: `#${item.color}` }}
-              ></div>
+              {color && (
+                <div
+                  className={`h-4 w-4 rounded-full `}
+                  style={{ backgroundColor: `#${item.color}` }}
+                ></div>
+              )}
+
               <h1>{item.title}</h1>
             </Flex>
           </div>
