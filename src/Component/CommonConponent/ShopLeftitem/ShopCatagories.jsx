@@ -6,13 +6,6 @@ const ShopCatagories = ({ catagoresData, shopLeftTitle }) => {
   const [showCatagories, setshowCatagories] = useState(
     catagoresData.map(() => false)
   );
-  //   const HanldeCatagoryToggle = (idx) => {
-  //     setshowCatagories((previousState) => {
-  //       return previousState.map((value, index) => {
-  //         return idx === index ? !value : false;
-  //       });
-  //     });
-  //   };
 
   const HanldeCatagoryToggle = (idx) => {
     setshowCatagories((previousState) => {
@@ -21,8 +14,6 @@ const ShopCatagories = ({ catagoresData, shopLeftTitle }) => {
       );
     });
   };
-
-  console.log(showCatagories);
 
   return (
     <>

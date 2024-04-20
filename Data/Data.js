@@ -194,3 +194,11 @@ export const catagories = [
     ],
   },
 ];
+
+export const shopByColor = [
+  { id: 1, colorCode: "#000000", title: "Black" },
+  { id: 2, colorCode: "#FF8686", title: "Pink" },
+  { id: 3, colorCode: "#7ED321", title: "Green" },
+  { id: 4, colorCode: "#B6B6B6", title: "OffWhite" },
+  { id: 5, colorCode: "#15CBA5", title: "Blue" },
+];
