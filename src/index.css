@@ -46,10 +46,16 @@
 }
 
 @layer components {
-  .menuItem {
-    font-size: 14px;
-    font-weight: 400;
-    font-family: var(--DMsans);
-    color: var(--secondary_font_color);
+  .custom-select {
+    padding: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  .custom-select option {
+    padding: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 }

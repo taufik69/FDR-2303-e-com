@@ -218,3 +218,10 @@ export const shopByPrice = [
   { id: 4, title: "$30.00 - $39.99" },
   { id: 5, title: "$40.00 - $69.99" },
 ];
+
+export const SortBy = [
+  { id: 1, SortItem: "Cloths" },
+  { id: 2, SortItem: "Electronics" },
+  { id: 2, SortItem: "Bag" },
+  { id: 3, SortItem: "Womens" },
+];
