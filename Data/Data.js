@@ -202,3 +202,19 @@ export const shopByColor = [
   { id: 4, colorCode: "#B6B6B6", title: "OffWhite" },
   { id: 5, colorCode: "#15CBA5", title: "Blue" },
 ];
+
+export const shopByBrand = [
+  { id: 1, title: "Apex" },
+  { id: 2, title: "Apple" },
+  { id: 3, title: "Samsumg" },
+  { id: 4, title: "HP" },
+  { id: 5, title: "Bata" },
+];
+
+export const shopByPrice = [
+  { id: 1, title: "$0.00 - $9.99" },
+  { id: 2, title: "$10.00 - $19.99" },
+  { id: 3, title: "$20.00 - $29.99" },
+  { id: 4, title: "$30.00 - $39.99" },
+  { id: 5, title: "$40.00 - $69.99" },
+];
