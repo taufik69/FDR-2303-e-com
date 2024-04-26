@@ -145,18 +145,6 @@ export const SpeacialOffer = [
   },
 ];
 
-<<<<<<< HEAD
-export const shopCatagories = [
-  {
-    id: 1,
-    title: "catagories 1",
-    subcatagories: [{ id: 1, title: "subcatagories 1 " }],
-  },
-  {
-    id: 2,
-    title: "catagories 2",
-    subcatagories: [],
-=======
 export const catagories = [
   {
     id: 1,
@@ -179,21 +167,10 @@ export const catagories = [
       { id: 5, title: "Iphone 11" },
       { id: 6, title: "Iphone 11 pro max" },
     ],
->>>>>>> main
   },
 
   {
     id: 3,
-<<<<<<< HEAD
-    title: "catagories 3",
-    subcatagories: [],
-  },
-
-  {
-    id: 4,
-    title: "catagories 4",
-    subcatagories: [{ id: 4, title: "subcatagories 4 " }],
-=======
     title: "Desktop",
     subcatgores: [
       { id: 1, title: "Asus" },
@@ -205,33 +182,10 @@ export const catagories = [
     id: 4,
     title: "Accesoris",
     subcatgores: [],
->>>>>>> main
   },
 
   {
     id: 5,
-<<<<<<< HEAD
-    title: "catagories 5",
-    subcatagories: [],
-  },
-];
-
-export const shopColor = [
-  { id: 1, color: "262626", title: "color 1" },
-  { id: 2, color: "FF8686", title: "color 2" },
-  { id: 3, color: "7ED321", title: "color 3" },
-  { id: 4, color: "B6B6B6", title: "color 4" },
-  { id: 5, color: "15CBA5", title: "color 5" },
-];
-
-export const Brand = [
-  { id: 1, title: "brand 1" },
-  { id: 2, title: "brand 2" },
-  { id: 3, title: "brand 3" },
-  { id: 4, title: "brand 4" },
-  { id: 5, title: "brand 5" },
-  { id: 6, title: "brand 1" },
-=======
     title: "Cloths",
     subcatgores: [
       { id: 1, title: "Mens" },
@@ -270,5 +224,4 @@ export const SortBy = [
   { id: 2, SortItem: "Electronics" },
   { id: 2, SortItem: "Bag" },
   { id: 3, SortItem: "Womens" },
->>>>>>> main
 ];
