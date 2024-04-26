@@ -24,7 +24,7 @@ const Product = ({ colorVariant, bagze, imga }) => {
 
             <div>
               <Flex className={"gap-x-5 items-center"}>
-                <h5>Add to Wish List</h5>
+                <h5>Compare</h5>
                 <span>
                   <FaHeart />
                 </span>
@@ -33,7 +33,7 @@ const Product = ({ colorVariant, bagze, imga }) => {
 
             <div>
               <Flex className={"gap-x-5 items-center"}>
-                <h5>Add to Wish List</h5>
+                <h5>Add to Cart</h5>
                 <span>
                   <FaHeart />
                 </span>
