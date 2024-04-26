@@ -3,13 +3,20 @@ import React from "react";
 import Flex from "./Flex";
 import { FaHeart } from "react-icons/fa";
 
-const Product = ({ colorVariant, bagze, imga }) => {
+const Product = ({
+  colorVariant,
+  bagze,
+  imga,
+  productName,
+  procutPrice,
+  bazgeIsStay,
+}) => {
   return (
     <div className="sm:px-0  w-full">
-      <div className="pb-6 relative sm:w-[95%]  overflow-hidden group cursor-pointer ">
+      <div className="pb-6 relative sm:w-[95%]  md:w-full overflow-hidden group cursor-pointer ">
         <div className="absolute top-4 left-4 rounded-sm">{bagze}</div>
 
-        <img src={imga} alt={imga} className="w-full h-full object-cover" />
+        <img src={imga} alt={imga} className="w-full h-[290px] object-cover" />
         {/* -----------overlay--------  */}
         <div className="absolute bg-gray-100 w-full -bottom-[40%]  transition-all left-0 group-hover:bottom-6">
           <div className="flex justify-end flex-col items-end p-6">
@@ -44,8 +51,8 @@ const Product = ({ colorVariant, bagze, imga }) => {
         {/* -----------overlay--------  */}
       </div>
       <Flex className={"justify-between"}>
-        <h3>Basic Crew Neck Tee</h3>
-        <p>$44.00</p>
+        <h3>{productName ? productName : "Basic Crew Neck Tee"}</h3>
+        <p> {procutPrice ? `$${procutPrice}` : "$44.00"}</p>
       </Flex>
       {colorVariant && <span>Black</span>}
     </div>

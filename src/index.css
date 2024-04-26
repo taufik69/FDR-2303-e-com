@@ -44,18 +44,3 @@
     @apply m-0 p-0;
   }
 }
-
-@layer components {
-  .custom-select {
-    padding: 10px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
-  .custom-select option {
-    padding: 10px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
-}
