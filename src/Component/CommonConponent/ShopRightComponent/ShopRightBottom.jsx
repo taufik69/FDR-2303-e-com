@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { ShopRightPageNumberContext } from "../../ShopComponent/ShopRight/ShopRight.jsx";
+import React, { useEffect, useState, useContext } from "react";
 import Product from "../Product";
 import Button from "../Button";
 import axios from "axios";
@@ -6,7 +7,9 @@ import {
   MdKeyboardDoubleArrowLeft,
   MdKeyboardDoubleArrowRight,
 } from "react-icons/md";
+
 const ShopRightBottom = () => {
+  const value = useContext(ShopRightPageNumberContext);
   const [allProducts, setallProducts] = useState([]);
   const [page, setpage] = useState(1);
 
@@ -23,7 +26,7 @@ const ShopRightBottom = () => {
   const handlePagination = (pageNumber) => {
     if (
       pageNumber > 0 &&
-      pageNumber <= Math.floor(allProducts.length / 9) + 1
+      pageNumber <= Math.floor(allProducts.length / value) + 1
     ) {
       setpage(pageNumber);
     }
@@ -33,28 +36,32 @@ const ShopRightBottom = () => {
     <>
       <div className="mt-10">
         <div className="flex flex-wrap justify-between gap-y-7">
-          {allProducts?.slice(page * 9 - 9, page * 9).map((productItem) => (
-            <div className={"w-[32%]"} key={productItem.id}>
-              <Product
-                imga={productItem.thumbnail}
-                colorVariant={"balck"}
-                productName={productItem.title}
-                procutPrice={productItem.price - productItem.discountPercentage}
-                bagze={
-                  <Button
-                    title={
-                      productItem.discountPercentage
-                        ? `$${productItem.discountPercentage}`
-                        : productItem.stock === 0
-                        ? "Stock Out"
-                        : "New"
-                    }
-                    className={"py-2 px-8 bg-black text-white "}
-                  />
-                }
-              />
-            </div>
-          ))}
+          {allProducts
+            ?.slice(page * value - value, page * value)
+            .map((productItem) => (
+              <div className={"w-[32%]"} key={productItem.id}>
+                <Product
+                  imga={productItem.thumbnail}
+                  colorVariant={"balck"}
+                  productName={productItem.title}
+                  procutPrice={
+                    productItem.price - productItem.discountPercentage
+                  }
+                  bagze={
+                    <Button
+                      title={
+                        productItem.discountPercentage
+                          ? `$${productItem.discountPercentage}`
+                          : productItem.stock === 0
+                          ? "Stock Out"
+                          : "New"
+                      }
+                      className={"py-2 px-8 bg-black text-white "}
+                    />
+                  }
+                />
+              </div>
+            ))}
         </div>
 
         <div className="mt-10">
@@ -66,7 +73,7 @@ const ShopRightBottom = () => {
               >
                 <MdKeyboardDoubleArrowLeft />
               </p>
-              {[...new Array(Math.floor(allProducts.length / 9) + 1)].map(
+              {[...new Array(Math.floor(allProducts.length / value) + 1)].map(
                 (item, index) => (
                   <div key={index}>
                     <p
@@ -91,11 +98,11 @@ const ShopRightBottom = () => {
 
             <div>
               <p>{`Products from ${
-                page == 1 ? page * 9 - 9 + 1 : page * 9 - 9
+                page == 1 ? page * value - value + 1 : page * value - value
               } to ${
-                page === Math.floor(allProducts.length / 9) + 1
+                page === Math.floor(allProducts.length / value) + 1
                   ? allProducts.length
-                  : page * 9
+                  : page * value
               } of ${allProducts.length}`}</p>
             </div>
           </div>
