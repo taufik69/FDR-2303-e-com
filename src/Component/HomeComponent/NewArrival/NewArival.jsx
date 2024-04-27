@@ -71,6 +71,7 @@ const settings = {
   arrows: true,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
+
   responsive: [
     {
       breakpoint: 1024,

@@ -13,7 +13,7 @@ const Product = ({
 }) => {
   return (
     <div className="sm:px-0  w-full">
-      <div className="pb-6 relative sm:w-[95%]  md:w-full overflow-hidden group cursor-pointer ">
+      <div className="pb-6 relative sm:w-[98%]  overflow-hidden group cursor-pointer ">
         <div className="absolute top-4 left-4 rounded-sm">{bagze}</div>
 
         <img src={imga} alt={imga} className="w-full h-[290px] object-cover" />
@@ -50,7 +50,7 @@ const Product = ({
         </div>
         {/* -----------overlay--------  */}
       </div>
-      <Flex className={"justify-between"}>
+      <Flex className={"justify-between pr-4"}>
         <h3>{productName ? productName : "Basic Crew Neck Tee"}</h3>
         <p> {procutPrice ? `$${procutPrice}` : "$44.00"}</p>
       </Flex>

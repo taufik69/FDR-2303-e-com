@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import { SortBy } from "../../../../Data/Data.js";
 import { FaBars } from "react-icons/fa6";
-import { BiSolidUpArrow, BiSolidDownArrow } from "react-icons/bi";
 import Flex from "../Flex.jsx";
+
 
 const ProductRightTop = () => {
   const [sortProduct, setSortProduct] = useState(SortBy);

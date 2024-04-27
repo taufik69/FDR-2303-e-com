@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Product from "../Product";
-import p4 from "../../../assets/p4.png";
 import Button from "../Button";
 import axios from "axios";
+import {
+  MdKeyboardDoubleArrowLeft,
+  MdKeyboardDoubleArrowRight,
+} from "react-icons/md";
 const ShopRightBottom = () => {
   const [allProducts, setallProducts] = useState([]);
   const [page, setpage] = useState(1);
@@ -18,7 +21,12 @@ const ShopRightBottom = () => {
 
   //   handlePagination function implementaion
   const handlePagination = (pageNumber) => {
-    setpage(pageNumber);
+    if (
+      pageNumber > 0 &&
+      pageNumber <= Math.floor(allProducts.length / 9) + 1
+    ) {
+      setpage(pageNumber);
+    }
   };
 
   return (
@@ -52,11 +60,20 @@ const ShopRightBottom = () => {
         <div className="mt-10">
           <div className="flex items-center justify-between">
             <div className="flex gap-x-2">
+              <p
+                className={`w-[36px] h-[36px] bg-red-100 text-black flex  justify-center items-center cursor-pointer rounded-sm `}
+                onClick={() => handlePagination(page - 1)}
+              >
+                <MdKeyboardDoubleArrowLeft />
+              </p>
               {[...new Array(Math.floor(allProducts.length / 9) + 1)].map(
                 (item, index) => (
                   <div key={index}>
                     <p
-                      className="w-[36px] h-[36px] bg-black text-main_bg_color flex  justify-center items-center cursor-pointer"
+                      className={`w-[36px] h-[36px] bg-black text-main_bg_color flex  justify-center items-center cursor-pointer rounded-sm ${
+                        index + 1 === page &&
+                        "bg-blue-400 text-main_font_color rounded-sm"
+                      }`}
                       onClick={() => handlePagination(index + 1)}
                     >
                       {index + 1}
@@ -64,6 +81,12 @@ const ShopRightBottom = () => {
                   </div>
                 )
               )}
+              <p
+                className={`w-[36px] h-[36px] bg-red-100 text-black flex  justify-center items-center cursor-pointer rounded-sm `}
+                onClick={() => handlePagination(page + 1)}
+              >
+                <MdKeyboardDoubleArrowRight />
+              </p>
             </div>
 
             <div>
