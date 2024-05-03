@@ -30,9 +30,7 @@ export const Fetcher = () => {
       dispatch(setStatus(ApiStatus.loading));
       const response = await fetch("https://dummyjson.com/products");
       const data = await response.json();
-      setTimeout(() => {
-        dispatch(setProduct(data.products));
-      }, 3000);
+      dispatch(setProduct(data.products));
     } catch (error) {
       dispatch(setStatus(ApiStatus.error));
     } finally {

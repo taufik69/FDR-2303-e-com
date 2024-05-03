@@ -42,7 +42,7 @@ const ShopRightBottom = () => {
     <>
       <div className="mt-10">
         <div>{status.payload}</div>
-        {data.payload.length > 0 && (
+        {status.payload === "IDLE" && allProducts.length > 0 && (
           <div>
             <div className="flex flex-wrap justify-between gap-y-7">
               {allProducts
