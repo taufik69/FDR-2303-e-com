@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import { SortBy } from "../../../../Data/Data.js";
 import { FaBars } from "react-icons/fa6";
-import { BiSolidUpArrow, BiSolidDownArrow } from "react-icons/bi";
 import Flex from "../Flex.jsx";
 
-const ProductRightTop = () => {
+const ProductRightTop = ({ onpageItem }) => {
   const [sortProduct, setSortProduct] = useState(SortBy);
 
   return (
@@ -50,29 +49,34 @@ const ProductRightTop = () => {
               Show:
             </h2>
             <select
+              onChange={onpageItem}
               name="sort"
               id="sort"
               className="custom-select min-w-[140px] py-2 border-2 border-[#F0F0F0]"
             >
-              <option
-                value="20"
-                className="text-secondary_font_color font-DMsans font-normal text-base"
-              >
-                20
+              <option className="text-secondary_font_color font-DMsans font-normal text-base">
+                select Item
               </option>
 
               <option
-                value="20"
+                value="9"
                 className="text-secondary_font_color font-DMsans font-normal text-base"
               >
-                20
+                9
               </option>
 
               <option
-                value="20"
+                value="18"
                 className="text-secondary_font_color font-DMsans font-normal text-base"
               >
-                20
+                18
+              </option>
+
+              <option
+                value="27"
+                className="text-secondary_font_color font-DMsans font-normal text-base"
+              >
+                27
               </option>
             </select>
           </Flex>

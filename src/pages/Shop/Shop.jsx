@@ -2,7 +2,7 @@ import React from "react";
 import BreadCrumb from "../../Component/CommonConponent/BreadCrumb/BreadCrumb";
 import ShopLeft from "../../Component/ShopComponent/ShopLeft/ShopLeft";
 import Flex from "../../Component/CommonConponent/Flex";
-import ShopRight from "../../Component/ShopComponent/ShopRight.jsx/ShopRight";
+import ShopRight from "../../Component/ShopComponent/ShopRight/ShopRight.jsx";
 
 const Shop = () => {
   return (
@@ -14,9 +14,9 @@ const Shop = () => {
           </h1>
           <BreadCrumb />
           <div className="py-20">
-            <Flex className="py-10">
-              <ShopLeft className="w-[25%]  " />
-              <ShopRight className="w-[75%]  ml-7 " />
+            <Flex>
+              <ShopLeft className="w-[25%]" />
+              <ShopRight className="w-[75%]  ml-7  " />
             </Flex>
           </div>
         </div>
