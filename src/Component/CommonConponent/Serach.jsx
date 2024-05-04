@@ -1,6 +1,7 @@
 import React from "react";
 import Flex from "../CommonConponent/Flex";
 import { FcSearch } from "react-icons/fc";
+
 const Serach = ({ placeHolder }) => {
   return (
     <>
