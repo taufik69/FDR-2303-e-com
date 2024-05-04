@@ -7,8 +7,12 @@ import {
   MdKeyboardDoubleArrowLeft,
   MdKeyboardDoubleArrowRight,
 } from "react-icons/md";
+import { SetProuduts } from "../../../Redux/AllSlice/ProductSlice/ProductSlice.js";
+import { useSelector, useDispatch } from "react-redux";
 
 const ShopRightBottom = () => {
+  const dispatch = useDispatch();
+
   const value = useContext(ShopRightPageNumberContext);
   const [allProducts, setallProducts] = useState([]);
   const [page, setpage] = useState(1);
@@ -17,6 +21,8 @@ const ShopRightBottom = () => {
     const ProudtDataFetcher = async () => {
       const products = await axios.get("https://dummyjson.com/products");
       setallProducts(products.data.products);
+      // set data on redux
+      dispatch(SetProuduts(products.data.products));
     };
 
     ProudtDataFetcher();

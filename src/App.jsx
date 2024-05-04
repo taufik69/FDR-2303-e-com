@@ -8,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Shop from "./pages/Shop/Shop";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
