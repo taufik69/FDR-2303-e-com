@@ -5,6 +5,7 @@ const BreadCrumb = () => {
   const location = useLocation();
   let BreadCrumbpathName = location.pathname.split("/").filter((x) => x);
   let breadCrumList = "";
+  console.log(BreadCrumbpathName);
 
   return (
     <div>
@@ -12,7 +13,7 @@ const BreadCrumb = () => {
         <li>
           <Link
             to={"/"}
-            className="bg-green-400 px-5 py-1 rounded-md text-black hover:bg-green-300"
+            className="rounded-md bg-green-400 px-5 py-1 text-black hover:bg-green-300"
           >
             Home
           </Link>
@@ -21,27 +22,29 @@ const BreadCrumb = () => {
         {BreadCrumbpathName.map((path, index) => {
           const isLast = index === BreadCrumbpathName.length - 1;
           // const routeTo = `${BreadCrumbpathName.slice(0, index + 1)}`;
+          // console.log(routeTo);
           breadCrumList += path;
           // console.log(routeTo);
           return (
             <li key={path}>
               {isLast ? (
-                <Link
-                  className={`${
-                    isLast
-                      ? "bg-blue-300 px-5 py-1 rounded-md text-black hover:bg-green-300"
-                      : null
-                  }`}
-                >
-                 
-                  {path}
-                </Link>
+                <>
+                  <Link
+                    className={`${
+                      isLast
+                        ? "rounded-md bg-blue-300 px-5 py-1 text-black hover:bg-green-300"
+                        : null
+                    }`}
+                  >
+                    {path}
+                  </Link>
+                </>
               ) : (
                 <Link
                   to={`/${breadCrumList}`}
                   className={`${
                     isLast
-                      ? "bg-blue-300 px-5 py-1 rounded-md text-black hover:bg-green-300"
+                      ? "rounded-md bg-blue-300 px-5 py-1 text-black hover:bg-green-300"
                       : null
                   }`}
                 >

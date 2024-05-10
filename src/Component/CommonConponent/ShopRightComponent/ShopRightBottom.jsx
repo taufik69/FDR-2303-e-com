@@ -17,9 +17,8 @@ const ShopRightBottom = () => {
   const [allProducts, setallProducts] = useState([]);
   const [page, setpage] = useState(1);
 
-  // setallProducts(status.payload);
   useEffect(() => {
-    dispatch(FetcherProduct());
+    dispatch(FetcherProduct(import.meta.env.VITE_REACT_APP_PRODUCT_API));
   }, []);
 
   const { data, status } = useSelector((state) => state.prouduct);
@@ -76,7 +75,7 @@ const ShopRightBottom = () => {
                       className={`w-full md:w-[49%] xl:w-[32%] ${GridLayout ? "w-full " : "w-[32%]"}`}
                       key={productItem.id}
                     >
-                      <Link to={`/product-inside`}>
+                      <Link to={`/product-inside/${productItem.id}`}>
                         <Product
                           imga={productItem.thumbnail}
                           colorVariant={"balck"}
