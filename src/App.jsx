@@ -8,14 +8,16 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Shop from "./pages/Shop/Shop";
+import ProductInside from "./pages/ProuductInside/ProductInside";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path="/shop" element={<Shop />} />
-    </Route>
-  )
+      <Route path="/product-inside" element={<ProductInside />} />
+    </Route>,
+  ),
 );
 
 function App() {

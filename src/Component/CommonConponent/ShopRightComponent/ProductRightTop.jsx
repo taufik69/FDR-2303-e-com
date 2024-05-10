@@ -4,28 +4,32 @@ import { SortBy } from "../../../../Data/Data.js";
 import { FaBars } from "react-icons/fa6";
 import Flex from "../Flex.jsx";
 
-const ProductRightTop = ({ onpageItem }) => {
+const ProductRightTop = ({ onpageItem, onchageLayout, changeIcon }) => {
   const [sortProduct, setSortProduct] = useState(SortBy);
 
   return (
-    <Flex className="items-center justify-between">
-      <div>
-        <BsFillGrid3X3GapFill className="text-2xl" />
+    <Flex className="items-center justify-between sm:px-3 md:px-0">
+      <div onClick={onchageLayout}>
+        {changeIcon ? (
+          <FaBars className="cursor-pointer text-2xl" />
+        ) : (
+          <BsFillGrid3X3GapFill className="cursor-pointer text-2xl" />
+        )}
       </div>
       <div className="flex gap-x-6">
         <div>
           <Flex className=" items-center">
-            <h2 className="text-secondary_font_color font-DMsans text-base font-normal mr-4">
+            <h2 className="mr-4 hidden font-DMsans text-base font-normal text-secondary_font_color   sm:block ">
               Sort by:
             </h2>
             <select
               name="sort"
               id="sort"
-              className="custom-select min-w-[240px] py-2 border-2 border-[#F0F0F0] cursor-pointer"
+              className="custom-select min-w-[120px] cursor-pointer border-2 border-[#F0F0F0]  py-2 sm:min-w-[240px]"
             >
               <option
                 value="Featured"
-                className="text-secondary_font_color font-DMsans font-normal text-base"
+                className="font-DMsans text-base font-normal text-secondary_font_color"
               >
                 Featured <FaBars />
               </option>
@@ -34,7 +38,7 @@ const ProductRightTop = ({ onpageItem }) => {
                 <option
                   value={sortItem.SortItem}
                   key={sortItem.SortItem}
-                  className="text-secondary_font_color font-DMsans font-normal text-base "
+                  className="font-DMsans text-base font-normal text-secondary_font_color "
                 >
                   {sortItem.SortItem}
                 </option>
@@ -45,36 +49,36 @@ const ProductRightTop = ({ onpageItem }) => {
 
         <div>
           <Flex className=" items-center">
-            <h2 className="text-secondary_font_color font-DMsans text-base font-normal mr-4 cursor-pointer">
+            <h2 className="sm:blo mr-4 hidden cursor-pointer font-DMsans text-base font-normal text-secondary_font_color">
               Show:
             </h2>
             <select
               onChange={onpageItem}
               name="sort"
               id="sort"
-              className="custom-select min-w-[140px] py-2 border-2 border-[#F0F0F0]"
+              className="custom-select min-w-[140px] border-2 border-[#F0F0F0] py-2"
             >
-              <option className="text-secondary_font_color font-DMsans font-normal text-base">
+              <option className="font-DMsans text-base font-normal text-secondary_font_color">
                 select Item
               </option>
 
               <option
                 value="9"
-                className="text-secondary_font_color font-DMsans font-normal text-base"
+                className="font-DMsans text-base font-normal text-secondary_font_color"
               >
                 9
               </option>
 
               <option
                 value="18"
-                className="text-secondary_font_color font-DMsans font-normal text-base"
+                className="font-DMsans text-base font-normal text-secondary_font_color"
               >
                 18
               </option>
 
               <option
                 value="27"
-                className="text-secondary_font_color font-DMsans font-normal text-base"
+                className="font-DMsans text-base font-normal text-secondary_font_color"
               >
                 27
               </option>
