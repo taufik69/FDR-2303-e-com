@@ -27,7 +27,7 @@ const ShopRight = ({ className }) => {
       <ProductRightTop
         onpageItem={HandlePageOption}
         onchageLayout={handleChangelayout}
-        changeIcon = {GridLayout}
+        changeIcon={GridLayout}
       />
       <ShopRightPageNumberContext.Provider value={shopRigtBottomItem}>
         <ShopRightBottom />

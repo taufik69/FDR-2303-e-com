@@ -16,7 +16,6 @@ const ShopRightBottom = () => {
   const { perPageItem, GridLayout } = value;
   const [allProducts, setallProducts] = useState([]);
   const [page, setpage] = useState(1);
-  console.log(perPageItem, GridLayout);
 
   useEffect(() => {
     dispatch(FetcherProduct());
@@ -31,9 +30,10 @@ const ShopRightBottom = () => {
 
   //   handlePagination function implementaion
   const handlePagination = (pageNumber) => {
+    console.log(pageNumber);
     if (
       pageNumber > 0 &&
-      pageNumber <= Math.floor(allProducts.length / value) + 1
+      pageNumber <= Math.floor(allProducts.length / perPageItem) + 1
     ) {
       setpage(pageNumber);
     }
