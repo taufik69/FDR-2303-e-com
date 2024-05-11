@@ -46,7 +46,7 @@ const ShopRightBottom = () => {
     <>
       <div className="mt-10">
         {status.payload == "LOADING" ? (
-          <Loading />
+          <Loading className={"w-[33%]"} perItem={9} />
         ) : status.payload === "ERROR" ? (
           <h1 className="flex h-[100vh] items-center justify-center bg-red-700 text-4xl text-white">
             Eroor

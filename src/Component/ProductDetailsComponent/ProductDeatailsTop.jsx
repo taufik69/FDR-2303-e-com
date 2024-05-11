@@ -7,14 +7,14 @@ const ProductDeatailsTop = ({ EachProductImage }) => {
         <div className="flex flex-wrap items-center justify-between gap-y-8 ">
           {EachProductImage.images?.slice(0, 4).map((img) => (
             <div
-              className="h-[450px] w-[49%]  rounded-lg bg-green-200 shadow-xl"
+              className="h-[450px] w-[49%]  cursor-pointer rounded-lg bg-green-200 shadow-xl"
               key={img}
             >
               <picture>
                 <img
                   src={img}
                   alt={img}
-                  className="h-full w-full rounded-lg object-cover"
+                  className="h-full w-full rounded-lg object-cover "
                 />
               </picture>
             </div>
