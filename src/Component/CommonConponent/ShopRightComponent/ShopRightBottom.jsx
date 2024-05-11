@@ -8,6 +8,8 @@ import {
 } from "react-icons/md";
 import { FetcherProduct } from "../../../Redux/AllSlice/ProductSlice/ProductSlice.js";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import Loading from "../Loading.jsx";
 
 const ShopRightBottom = () => {
   const dispatch = useDispatch();
@@ -18,13 +20,14 @@ const ShopRightBottom = () => {
   const [page, setpage] = useState(1);
 
   useEffect(() => {
-    dispatch(FetcherProduct());
+    dispatch(FetcherProduct("https://dummyjson.com/products"));
   }, []);
 
   const { data, status } = useSelector((state) => state.prouduct);
+
   useEffect(() => {
     if (status.payload === "IDLE") {
-      setallProducts(data.payload);
+      setallProducts(data.payload.products);
     }
   }, [status.payload, data.payload]);
 
@@ -43,23 +46,7 @@ const ShopRightBottom = () => {
     <>
       <div className="mt-10">
         {status.payload == "LOADING" ? (
-          <div className="flex h-[100vh] items-center justify-center">
-            <div class="mx-auto w-full max-w-sm rounded-md border border-blue-300 p-4 shadow">
-              <div class="flex animate-pulse space-x-4">
-                <div class="h-10 w-10 rounded-full bg-slate-200"></div>
-                <div class="flex-1 space-y-6 py-1">
-                  <div class="h-2 rounded bg-slate-200"></div>
-                  <div class="space-y-3">
-                    <div class="grid grid-cols-3 gap-4">
-                      <div class="col-span-2 h-2 rounded bg-slate-200"></div>
-                      <div class="col-span-1 h-2 rounded bg-slate-200"></div>
-                    </div>
-                    <div class="h-2 rounded bg-slate-200"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Loading />
         ) : status.payload === "ERROR" ? (
           <h1 className="flex h-[100vh] items-center justify-center bg-red-700 text-4xl text-white">
             Eroor
@@ -75,26 +62,28 @@ const ShopRightBottom = () => {
                       className={`w-full md:w-[49%] xl:w-[32%] ${GridLayout ? "w-full " : "w-[32%]"}`}
                       key={productItem.id}
                     >
-                      <Product
-                        imga={productItem.thumbnail}
-                        colorVariant={"balck"}
-                        productName={productItem.title}
-                        procutPrice={
-                          productItem.price - productItem.discountPercentage
-                        }
-                        bagze={
-                          <Button
-                            title={
-                              productItem.discountPercentage
-                                ? `$${productItem.discountPercentage}`
-                                : productItem.stock === 0
-                                  ? "Stock Out"
-                                  : "New"
-                            }
-                            className={"bg-black px-8 py-2 text-white "}
-                          />
-                        }
-                      />
+                      <Link to={`/product-details/${productItem.id}`}>
+                        <Product
+                          imga={productItem.thumbnail}
+                          colorVariant={"balck"}
+                          productName={productItem.title}
+                          procutPrice={
+                            productItem.price - productItem.discountPercentage
+                          }
+                          bagze={
+                            <Button
+                              title={
+                                productItem.discountPercentage
+                                  ? `$${productItem.discountPercentage}`
+                                  : productItem.stock === 0
+                                    ? "Stock Out"
+                                    : "New"
+                              }
+                              className={"bg-black px-8 py-2 text-white "}
+                            />
+                          }
+                        />
+                      </Link>
                     </div>
                   ))}
               </div>
