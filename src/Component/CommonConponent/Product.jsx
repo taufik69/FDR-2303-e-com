@@ -12,16 +12,20 @@ const Product = ({
   bazgeIsStay,
 }) => {
   return (
-    <div className="sm:px-0  w-full">
-      <div className="pb-6 relative sm:w-[98%]  overflow-hidden group cursor-pointer ">
-        <div className="absolute top-4 left-4 rounded-sm">{bagze}</div>
+    <div className="w-full   sm:px-0">
+      <div className="group relative cursor-pointer  overflow-hidden pb-6 sm:w-[98%] ">
+        <div className="absolute left-4 top-4 rounded-sm">{bagze}</div>
 
-        <img src={imga} alt={imga} className="w-full h-[290px] object-cover" />
+        <img
+          src={imga}
+          alt={imga}
+          className="h-[290px] w-full rounded-md object-cover"
+        />
         {/* -----------overlay--------  */}
-        <div className="absolute bg-gray-100 w-full -bottom-[40%]  transition-all left-0 group-hover:bottom-6">
-          <div className="flex justify-end flex-col items-end p-6">
+        <div className="absolute -bottom-[40%] left-0 w-full  bg-gray-200 transition-all group-hover:bottom-6">
+          <div className="flex flex-col items-end justify-end p-6">
             <div>
-              <Flex className={"gap-x-5 items-center"}>
+              <Flex className={"items-center gap-x-5"}>
                 <h5>Add to Wish List</h5>
                 <span>
                   <FaHeart />
@@ -30,8 +34,8 @@ const Product = ({
             </div>
 
             <div>
-              <Flex className={"gap-x-5 items-center"}>
-                <h5>Compare</h5>
+              <Flex className={"items-center gap-x-5"}>
+                <h5>Add to Wish List</h5>
                 <span>
                   <FaHeart />
                 </span>
@@ -39,8 +43,8 @@ const Product = ({
             </div>
 
             <div>
-              <Flex className={"gap-x-5 items-center"}>
-                <h5>Add to Cart</h5>
+              <Flex className={"items-center gap-x-5"}>
+                <h5>Add to Wish List</h5>
                 <span>
                   <FaHeart />
                 </span>
