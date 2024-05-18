@@ -9,8 +9,6 @@ const Categories = ({ categoriesItem }) => {
     categoriesItem.map(() => false)
   );
 
-  //   console.log(showSubCategories[0]);
-
   // Function to handle the toggle of subcategory visibility for a specific category
   const handleSubCategoryToggle = (id) => {
     setShowSubCategories((prevState) =>
