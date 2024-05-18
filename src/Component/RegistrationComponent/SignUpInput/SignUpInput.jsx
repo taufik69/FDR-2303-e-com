@@ -11,7 +11,7 @@ const SignUpInput = ({
   return (
     <div className="flex basis-2/5 flex-col gap-y-4">
       <label
-        className="font-DMsans text-base font-normal text-main_font_color"
+        className="font-DMsans text-base font-normal text-secondary_font_color"
         htmlFor={labelTitle}
       >
         {labelTitle}
