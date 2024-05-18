@@ -194,7 +194,6 @@ const Registration = () => {
             </form>
           </div>
           {/* customer infomation */}
-          {/* customer infomation */}
         </div>
       </div>
     </>
