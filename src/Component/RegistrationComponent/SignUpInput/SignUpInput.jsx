@@ -7,6 +7,7 @@ const SignUpInput = ({
   labelTitle,
   inputId,
   oninputChange,
+  valueFrom,
 }) => {
   return (
     <div className="flex basis-2/5 flex-col gap-y-4">
@@ -22,6 +23,7 @@ const SignUpInput = ({
         id={inputId}
         name={inputId}
         placeholder={placeHolder}
+        value={valueFrom}
         onChange={oninputChange}
       />
     </div>

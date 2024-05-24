@@ -32,7 +32,6 @@ export const FetcherProduct = (apiUrl) => {
       dispatch(setStatus(ApiStatus.LOADING));
       const response = await fetch(apiUrl);
       const data = await response.json();
-
       dispatch(SetProuduts(data));
       dispatch(setStatus(ApiStatus.IDLE));
     } catch (error) {
