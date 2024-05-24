@@ -6,12 +6,16 @@ import ProductDeatailsTop from "../../Component/ProductDetailsComponent/ProductD
 import Loading from "../../Component/CommonConponent/Loading";
 import RatingStar from "../../Component/ProductDetailsComponent/RatingStar";
 import ProductInfo from "../../Component/ProductDetailsComponent/ProductInfo";
+import { addtoCart } from "../../Redux/AllSlice/AddToCart/AddtocartSlice";
+import { useParams } from "react-router-dom";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
   const [EachProduct, setEachProduct] = useState({});
+  const { productId } = useParams();
+
   useEffect(() => {
-    dispatch(FetcherProduct("https://dummyjson.com/products/1"));
+    dispatch(FetcherProduct(`https://dummyjson.com/products/${productId}`));
   }, []);
   const { data, status } = useSelector((state) => state.prouduct);
 
@@ -20,8 +24,11 @@ const ProductDetails = () => {
       setEachProduct(data.payload);
     }
   }, [status.payload, data.payload]);
-  console.log(EachProduct);
 
+  // HandleCart
+  const HandleCart = () => {
+    dispatch(addtoCart(EachProduct));
+  };
   return (
     <div className="py-14">
       <div className="container">
@@ -58,7 +65,10 @@ const ProductDetails = () => {
         </div>
 
         <div>
-          <ProductInfo productStock = {EachProduct.stock} />
+          <ProductInfo
+            productStock={EachProduct.stock}
+            onAddtoCart={HandleCart}
+          />
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import Button from "../CommonConponent/Button.jsx";
 import Flex from "../CommonConponent/Flex.jsx";
 import ProductDetails from "../CommonConponent/ProductDetails/ProductDetails.jsx";
 import Review from "../CommonConponent/ProductDetails/Review.jsx";
-const ProductInfo = ({ productStock }) => {
+const ProductInfo = ({ productStock, onAddtoCart }) => {
   const colorItem = [
     { id: 1, colorcode: "#979797" },
     { id: 2, colorcode: "#FF8686" },
@@ -92,12 +92,15 @@ const ProductInfo = ({ productStock }) => {
             }
           />
 
-          <Button
-            title="Add to Cart"
+          <button
             className={
-              "rounded border-2 border-main_font_color  bg-main_font_color  px-[67px] py-5 font-DMsans font-bold text-main_bg_color"
+              "rounded border-2 border-main_font_color  bg-main_font_color  px-[67px] py-5 font-DMsans font-bold text-white"
             }
-          />
+            onClick={onAddtoCart}
+          >
+            
+            Add to Cart
+          </button>
         </Flex>
         <hr className="mt-6 opacity-75" />
       </div>
