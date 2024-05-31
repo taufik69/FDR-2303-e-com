@@ -7,10 +7,11 @@ import Loading from "../../Component/CommonConponent/Loading";
 import RatingStar from "../../Component/ProductDetailsComponent/RatingStar";
 import ProductInfo from "../../Component/ProductDetailsComponent/ProductInfo";
 import { addtoCart } from "../../Redux/AllSlice/AddToCart/AddtocartSlice";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [EachProduct, setEachProduct] = useState({});
   const { productId } = useParams();
 
@@ -28,6 +29,7 @@ const ProductDetails = () => {
   // HandleCart
   const HandleCart = () => {
     dispatch(addtoCart(EachProduct));
+    navigate("/cart");
   };
   return (
     <div className="py-14">
