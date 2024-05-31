@@ -6,15 +6,13 @@ import { Link } from "react-router-dom";
 const Categories = ({ categoriesItem }) => {
   // State to track the visibility of subcategories for each category
   const [showSubCategories, setShowSubCategories] = useState(
-    categoriesItem.map(() => false)
+    categoriesItem.map(() => false),
   );
-
-  //   console.log(showSubCategories[0]);
 
   // Function to handle the toggle of subcategory visibility for a specific category
   const handleSubCategoryToggle = (id) => {
     setShowSubCategories((prevState) =>
-      prevState.map((value, index) => (id === index ? !value : false))
+      prevState.map((value, index) => (id === index ? !value : false)),
     );
   };
 

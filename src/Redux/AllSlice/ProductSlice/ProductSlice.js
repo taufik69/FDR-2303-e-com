@@ -7,7 +7,7 @@ const ApiStatus = {
 };
 
 const initialState = {
-  data: [],
+  data: {},
   status: ApiStatus.IDLE,
 };
 
@@ -32,8 +32,7 @@ export const FetcherProduct = (apiUrl) => {
       dispatch(setStatus(ApiStatus.LOADING));
       const response = await fetch(apiUrl);
       const data = await response.json();
-      console.log(data);
-      dispatch(SetProuduts(data.products));
+      dispatch(SetProuduts(data));
       dispatch(setStatus(ApiStatus.IDLE));
     } catch (error) {
       console.log(error);
