@@ -29,7 +29,6 @@ const ProductDetails = () => {
   // HandleCart
   const HandleCart = () => {
     dispatch(addtoCart(EachProduct));
-    navigate("/cart");
   };
   return (
     <div className="py-14">

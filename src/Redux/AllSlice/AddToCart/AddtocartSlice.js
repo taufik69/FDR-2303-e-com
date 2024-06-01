@@ -67,8 +67,72 @@ export const AddtoSlice = createSlice({
         transition: Bounce,
       });
     },
+    ProductIncrement: (state, action) => {
+      const findIndex = state.CartTtem.findIndex(
+        (item) => item.id === action.payload.id,
+      );
+      if (findIndex >= 0) {
+        state.CartTtem[findIndex].cartQuantity += 1;
+        localStorage.setItem("cartItem", JSON.stringify(state.CartTtem));
+        toast.success(`${action.payload.title} increment`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      }
+    },
+    productDecrement: (state, action) => {
+      const findIndex = state.CartTtem.findIndex(
+        (item) => item.id === action.payload.id,
+      );
+      if (state.CartTtem[findIndex].cartQuantity > 1) {
+        state.CartTtem[findIndex].cartQuantity -= 1;
+        toast.error(`${action.payload.title} decresed`, {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        localStorage.setItem("cartItem", JSON.stringify(state.CartTtem));
+      }
+    },
+    getTotal: (state, action) => {
+      const totalCart = state.CartTtem.reduce(
+        (totalCart, cartItem) => {
+          const { price, cartQuantity } = cartItem;
+          const totalCartPrice = cartQuantity * price;
+
+          totalCart.totalAmount += Math.round(totalCartPrice);
+          totalCart.totalItem += cartQuantity;
+          return totalCart;
+        },
+        {
+          totalAmount: 0,
+          totalItem: 0,
+        },
+      );
+      state.totoalCartItem = totalCart.totalItem;
+      state.TotalAmount = totalCart.totalAmount;
+    },
   },
 });
 
-export const { addtoCart, RemoveItemCart } = AddtoSlice.actions;
+export const {
+  addtoCart,
+  RemoveItemCart,
+  ProductIncrement,
+  productDecrement,
+  getTotal,
+} = AddtoSlice.actions;
 export default AddtoSlice.reducer;
