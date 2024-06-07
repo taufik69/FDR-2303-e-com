@@ -12,7 +12,8 @@ const Product = ({
   productId,
 }) => {
   const HanldeAddToCart = (event) => {
-    event.stopPropagation();
+    e.propagation();
+    // event.stopPropagation();
   };
 
   return (
