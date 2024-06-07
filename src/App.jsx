@@ -13,12 +13,14 @@ import Registration from "./pages/Registration/Registration";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Cart from "./pages/Cart/Cart";
+import Contact from "./pages/Contact/Contact";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<RootLayout />}>
         <Route index element={<Home />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/contact" element={<Contact />} />
         <Route
           path="/product-details/:productId"
           element={<ProductDetails />}

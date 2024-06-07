@@ -3,15 +3,17 @@ import Logo from "../../../assets/Logo.png";
 import Flex from "../../CommonConponent/Flex";
 import { FaBars } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
   // andleNavToggle funtionality
 
   return (
     <>
-      <div className="py-8 bg-main_bg_color  px-5 ">
+      <div className="bg-main_bg_color px-5  py-8 ">
         <div className="container">
-          <Flex className="justify-between items-center ">
+          <Flex className="items-center justify-between ">
             <div>
               <picture>
                 <img src={Logo} alt={Logo} />
@@ -23,45 +25,77 @@ const Header = () => {
                   <ul
                     className={`absolute md:static md:flex md:gap-x-5 ${
                       showNav
-                        ? " top-20 left-0 bg-green-400 w-full text-center z-10 transition-all"
-                        : " top-20 z-10 left-[-100%]  text-white "
+                        ? " left-0 top-20 z-10 w-full bg-green-400 text-center transition-all"
+                        : " left-[-100%] top-20 z-10  text-white lg:text-black"
                     }`}
                   >
-                    <li>
-                      <a
-                        href="#"
-                        className="menuItem transition-all hover:text-main_font_color hover:font-bold"
-                      >
-                        Home
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="menuItem">
-                        Shop
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="menuItem">
-                        About
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="menuItem">
-                        Contacts
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="menuItem">
-                        Journal
-                      </a>
-                    </li>
+                    <NavLink
+                      to="/"
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? "menuItem transition-all hover:font-bold hover:text-main_font_color"
+                          : isActive
+                            ? "menuItem text-green-500 transition-all"
+                            : ""
+                      }
+                    >
+                      Home
+                    </NavLink>
+                    <NavLink
+                      to="/shop"
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? "menuItem transition-all hover:font-bold hover:text-main_font_color"
+                          : isActive
+                            ? "menuItem text-green-500 transition-all"
+                            : ""
+                      }
+                    >
+                      shop
+                    </NavLink>
+                    <NavLink
+                      to="/about"
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? "menuItem transition-all hover:font-bold hover:text-main_font_color"
+                          : isActive
+                            ? "menuItem text-green-500 transition-all"
+                            : ""
+                      }
+                    >
+                      About
+                    </NavLink>
+                    <NavLink
+                      to="/contact"
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? "menuItem transition-all hover:font-bold hover:text-main_font_color"
+                          : isActive
+                            ? "menuItem text-green-500 transition-all"
+                            : ""
+                      }
+                    >
+                      contact
+                    </NavLink>
+                    <NavLink
+                      to="/Journal"
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? "menuItem transition-all hover:font-bold hover:text-main_font_color"
+                          : isActive
+                            ? "menuItem text-green-500 transition-all"
+                            : ""
+                      }
+                    >
+                      Journal
+                    </NavLink>
                   </ul>
                 </Flex>
               </div>
             </div>
             <div>
               <span
-                className="cursor-pointer md:hidden z-10"
+                className="z-10 cursor-pointer md:hidden"
                 onClick={() => setShowNav(!showNav)}
               >
                 {showNav ? <RxCross2 /> : <FaBars />}

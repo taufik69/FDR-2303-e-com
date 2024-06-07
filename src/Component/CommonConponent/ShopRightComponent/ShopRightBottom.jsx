@@ -61,28 +61,27 @@ const ShopRightBottom = () => {
                       className={`w-full md:w-[49%] xl:w-[32%] ${GridLayout ? "w-full " : "w-[32%]"}`}
                       key={productItem.id}
                     >
-                      <Link to={`/product-details/${productItem.id}`}>
-                        <Product
-                          imga={productItem.thumbnail}
-                          colorVariant={"balck"}
-                          productName={productItem.title}
-                          procutPrice={
-                            productItem.price - productItem.discountPercentage
-                          }
-                          bagze={
-                            <Button
-                              title={
-                                productItem.discountPercentage
-                                  ? `$${productItem.discountPercentage}`
-                                  : productItem.stock === 0
-                                    ? "Stock Out"
-                                    : "New"
-                              }
-                              className={"bg-black px-8 py-2 text-white "}
-                            />
-                          }
-                        />
-                      </Link>
+                      <Product
+                        productId={productItem.id}
+                        imga={productItem.thumbnail}
+                        colorVariant={"balck"}
+                        productName={productItem.title}
+                        procutPrice={
+                          productItem.price - productItem.discountPercentage
+                        }
+                        bagze={
+                          <Button
+                            title={
+                              productItem.discountPercentage
+                                ? `$${productItem.discountPercentage}`
+                                : productItem.stock === 0
+                                  ? "Stock Out"
+                                  : "New"
+                            }
+                            className={"bg-black px-8 py-2 text-white "}
+                          />
+                        }
+                      />
                     </div>
                   ))}
               </div>

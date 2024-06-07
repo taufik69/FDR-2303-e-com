@@ -1,9 +1,12 @@
 import React from "react";
 
-const Button = ({ className, title }) => {
+const Button = ({ className, title, oncartChange }) => {
   return (
     <>
-      <button className={className ? className : "p-5  bg-black text-white"}>
+      <button
+        onClick={oncartChange}
+        className={className ? className : "bg-black  p-5 text-white"}
+      >
         {title ? title : "nei"}
       </button>
     </>
