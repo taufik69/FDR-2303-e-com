@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { json } from "react-router-dom";
+
 import { toast, Bounce } from "react-toastify";
 
 const initialState = {

@@ -66,7 +66,7 @@ const Header = () => {
                       About
                     </NavLink>
                     <NavLink
-                      to="/Contacts"
+                      to="/contact"
                       className={({ isActive, isPending }) =>
                         isPending
                           ? "menuItem transition-all hover:font-bold hover:text-main_font_color"
@@ -75,7 +75,7 @@ const Header = () => {
                             : ""
                       }
                     >
-                      Contacts
+                      contact
                     </NavLink>
                     <NavLink
                       to="/Journal"
