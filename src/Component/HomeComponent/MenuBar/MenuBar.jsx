@@ -15,6 +15,7 @@ const MenuBar = () => {
   const [showAccount, setshowAccount] = useState(false);
   const [cart, setcart] = useState(false);
   const MenuRef = useRef();
+  const CartRef = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const HandleCatagory = () => {
@@ -33,7 +34,7 @@ const MenuBar = () => {
   const HanldeCart = () => {
     setshowCatagories(false);
     setshowAccount(false);
-    setcart(!cart);
+    setcart(false);
   };
 
   // Menu Ref funtionality
@@ -58,10 +59,21 @@ const MenuBar = () => {
   const handleCartChange = () => {
     navigate("/cart");
   };
+
   useEffect(() => {
     dispatch(getTotal());
   }, [CartTtem]);
 
+  /**
+   * todo : handleCancelCartItem funtionality
+   * @param({item})
+   */
+  const handleCancelCartItem = (event, item) => {
+    console.log(CartRef.current.contains(event.target));
+    if (CartRef.current.contains(event.target)) {
+      setcart(false);
+    }
+  };
   return (
     <>
       <div className="px-sm-0 bg-secondary_bg_color px-4 py-5" ref={MenuRef}>
@@ -145,7 +157,10 @@ const MenuBar = () => {
                     cart ? "left-[75%]" : null
                   }`}
                 >
-                  <div className="h-[50vh] overflow-y-scroll scrollbar-thin scrollbar-track-secondary_bg_color scrollbar-thumb-main_font_color">
+                  <div
+                    className="h-[50vh] overflow-y-scroll scrollbar-thin scrollbar-track-secondary_bg_color scrollbar-thumb-main_font_color"
+                    ref={CartRef}
+                  >
                     {CartTtem?.map((item) => (
                       <div className="flex items-center justify-around py-5">
                         <div className="h-[80px] w-[80px] border-2 border-main_font_color bg-secondary_bg_color object-cover">
@@ -164,8 +179,13 @@ const MenuBar = () => {
                           </span>
                         </div>
 
-                        <div className="text-main_font_color">
-                          <RxCross2 />
+                        <div
+                          className="text-main_font_color"
+                          onClick={(event) => handleCancelCartItem(event, item)}
+                        >
+                          <span>
+                            <RxCross2 />
+                          </span>
                         </div>
                       </div>
                     ))}
