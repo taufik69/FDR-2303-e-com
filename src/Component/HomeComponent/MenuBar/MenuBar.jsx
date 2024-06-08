@@ -34,7 +34,7 @@ const MenuBar = () => {
   const HanldeCart = () => {
     setshowCatagories(false);
     setshowAccount(false);
-    setcart(false);
+    setcart(true);
   };
 
   // Menu Ref funtionality
