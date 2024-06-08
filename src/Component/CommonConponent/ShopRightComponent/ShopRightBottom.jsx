@@ -8,7 +8,7 @@ import {
 } from "react-icons/md";
 import { FetcherProduct } from "../../../Redux/AllSlice/ProductSlice/ProductSlice.js";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { addtoCart } from "../../../Redux/AllSlice/AddToCart/AddtocartSlice.js";
 import Loading from "../Loading.jsx";
 
 const ShopRightBottom = () => {
@@ -41,6 +41,15 @@ const ShopRightBottom = () => {
     }
   };
 
+  /**
+   * todo : handleAddtoCart  funtion implement
+   * @params({item})
+   */
+
+  const handleAddtoCart = (item) => {
+    dispatch(addtoCart(item));
+  };
+
   return (
     <>
       <div className="mt-10">
@@ -62,6 +71,7 @@ const ShopRightBottom = () => {
                       key={productItem.id}
                     >
                       <Product
+                        onaddToCart={() => handleAddtoCart(productItem)}
                         productId={productItem.id}
                         imga={productItem.thumbnail}
                         colorVariant={"balck"}
