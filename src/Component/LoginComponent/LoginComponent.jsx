@@ -1,7 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import login from "../../assets/login.gif";
 import { Link } from "react-router-dom";
+import { ErrorMessage, SucessMessage, checkEmail } from "../../../utils/Utils";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 const LoginComponent = () => {
+  const auth = getAuth();
+  const [loginUser, setloginUser] = useState({
+    email: "",
+    password: "",
+  });
+  // handleloginUserInput
+  const handleloginUserInput = (e) => {
+    setloginUser({
+      ...loginUser,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  /**
+   *todo: HandleLogin funtion implement
+   */
+  const HandleLogin = () => {
+    const { email, password } = loginUser;
+    if (!email || !checkEmail(email)) {
+      ErrorMessage("Your Credential is Not Valid", "top-center");
+    } else if (!password) {
+      ErrorMessage("Your password is Not Valid", "top-center");
+    } else {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userInfo) => {
+          console.log(userInfo);
+          SucessMessage("Everyting is ok");
+        })
+        .catch((err) => {
+          ErrorMessage(err.message, "top-center");
+        });
+    }
+  };
   return (
     <div>
       {/* <!-- component --> */}
@@ -24,13 +59,14 @@ const LoginComponent = () => {
                 <label className="block text-gray-700">Email Address</label>
                 <input
                   type="email"
-                  name=""
-                  id=""
+                  name="email"
+                  id="email"
                   placeholder="Enter Email Address"
                   className="mt-2 w-full rounded-lg border bg-gray-200 px-4 py-3 focus:border-blue-500 focus:bg-white focus:outline-none"
                   autofocus
                   autocomplete
                   required
+                  onChange={handleloginUserInput}
                 />
               </div>
 
@@ -38,13 +74,14 @@ const LoginComponent = () => {
                 <label className="block text-gray-700">Password</label>
                 <input
                   type="password"
-                  name=""
-                  id=""
+                  name="password"
+                  id="password"
                   placeholder="Enter Password"
                   minlength="6"
                   className="mt-2 w-full rounded-lg border bg-gray-200 px-4 py-3 focus:border-blue-500
                 focus:bg-white focus:outline-none"
                   required
+                  onChange={handleloginUserInput}
                 />
               </div>
 
@@ -59,6 +96,7 @@ const LoginComponent = () => {
 
               <button
                 type="submit"
+                onClick={HandleLogin}
                 className="mt-6 block w-full rounded-lg bg-indigo-500 px-4 py-3 font-semibold
               text-white hover:bg-indigo-400 focus:bg-indigo-400"
               >

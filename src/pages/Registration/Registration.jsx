@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import RegistrationTop from "../../Component/RegistrationComponent/RegistraitonTop/RegistrationTop";
 import SignUpInput from "../../Component/RegistrationComponent/SignUpInput/SignUpInput";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { toast, Bounce } from "react-toastify";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../../Firebase/FirebaseConfig.js";
+import { Link, useNavigate } from "react-router-dom";
+import { SucessMessage } from "../../../utils/Utils.js";
 
 const Registration = () => {
   const auth = getAuth();
+  const navigate = useNavigate();
   const [loading, setloading] = useState(false);
   const [userInfo, setuserInfo] = useState({
     FirstName: "",
@@ -150,22 +157,19 @@ const Registration = () => {
       setloading(true);
       createUserWithEmailAndPassword(auth, userInfo.Email, userInfo.Password)
         .then((usercredential) => {
-          toast.info(`${userInfo.FirstName} Registration Done`, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-          });
+          SucessMessage(`${userInfo.FirstName} Registration Done`);
         })
         .then(() => {
           addDoc(collection(db, "users/"), userInfo)
             .then((userCrend) => {
-              console.log(userCrend);
+              sendEmailVerification(auth.currentUser).then(() => {
+                SucessMessage(`${userInfo.FirstName} Check Your Email Inbox`);
+              });
+            })
+            .then(() => {
+              setTimeout(() => {
+                navigate("/login");
+              }, 3000);
             })
             .catch((err) => {
               console.log(err);
@@ -483,6 +487,11 @@ const Registration = () => {
                   : "I have read and agree to the Privacy Policy"}
               </p>
             </div>
+            <Link to={"/login"}>
+              <p className="font-DMsans text-base font-normal text-secondary_font_color underline hover:text-blue-700">
+                i have an already Account
+              </p>
+            </Link>
             {/* Check mark  infomation */}
             {/* Check mark infomation */}
             <div className="flex items-center gap-x-3">
