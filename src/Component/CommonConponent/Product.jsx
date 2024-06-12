@@ -10,12 +10,8 @@ const Product = ({
   productName,
   procutPrice,
   productId,
+  onaddToCart,
 }) => {
-  const HanldeAddToCart = (event) => {
-    e.propagation();
-    // event.stopPropagation();
-  };
-
   return (
     <div className="w-full   sm:px-0">
       <div className="group relative cursor-pointer  overflow-hidden pb-6 sm:w-[98%] ">
@@ -49,7 +45,7 @@ const Product = ({
               </Flex>
             </div>
 
-            <div onClick={HanldeAddToCart}>
+            <div onClick={onaddToCart}>
               <Flex className={"items-center gap-x-5"}>
                 <h5>Add to Cart</h5>
                 <span>

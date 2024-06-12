@@ -10,6 +10,7 @@ import {
   productDecrement,
   getTotal,
 } from "../../Redux/AllSlice/AddToCart/AddtocartSlice.js";
+import { Link } from "react-router-dom";
 const Cart = () => {
   const dispatch = useDispatch();
   const { CartTtem, TotalAmount, totoalCartItem } = useSelector(
@@ -172,10 +173,11 @@ const Cart = () => {
                 </div>
               </div>
             </div>
-
-            <button className="flex items-center justify-center rounded-sm bg-main_font_color px-[16px] py-[32px] text-main_bg_color">
-              Proceed to Checkout
-            </button>
+            <Link to="/registration" className=" px-[16px]">
+              <button className=" flex w-full items-center justify-center rounded-sm bg-main_font_color py-[32px]  text-main_bg_color">
+                Proceed to Checkout
+              </button>
+            </Link>
           </div>
         </div>
       </div>

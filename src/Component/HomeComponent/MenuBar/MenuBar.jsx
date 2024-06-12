@@ -8,7 +8,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
 import Button from "../../CommonConponent/Button.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { getTotal } from "../../../Redux/AllSlice/AddToCart/AddtocartSlice.js";
+import {
+  getTotal,
+  RemoveItemCart,
+} from "../../../Redux/AllSlice/AddToCart/AddtocartSlice.js";
 
 const MenuBar = () => {
   const [showCatagories, setshowCatagories] = useState(false);
@@ -18,6 +21,39 @@ const MenuBar = () => {
   const CartRef = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  /**
+   * todo : take all product from redux
+   */
+  const { TotalAmount, totoalCartItem, CartTtem } = useSelector(
+    (state) => state.cart,
+  );
+
+  // Menu Ref funtionality
+
+  useEffect(() => {
+    window.addEventListener("click", (e) => {
+      if (!MenuRef.current.contains(e.target)) {
+        setshowCatagories(false);
+        setshowAccount(false);
+        setcart(false);
+      }
+      if (CartRef.current.contains(e.target)) {
+        setcart(true);
+      }
+    });
+    return () => {
+      window.addEventListener("click", () => {});
+    };
+  }, []);
+  const handleCartChange = () => {
+    navigate("/cart");
+  };
+  useEffect(() => {
+    dispatch(getTotal());
+    return () => {
+      dispatch(getTotal());
+    };
+  }, [CartTtem]);
   const HandleCatagory = () => {
     setshowAccount(false);
     setshowAccount(false);
@@ -37,42 +73,15 @@ const MenuBar = () => {
     setcart(true);
   };
 
-  // Menu Ref funtionality
-
-  useEffect(() => {
-    window.addEventListener("click", (e) => {
-      if (!MenuRef.current.contains(e.target)) {
-        setshowCatagories(false);
-        setshowAccount(false);
-        setcart(false);
-      }
-    });
-  }, []);
-
   /**
-   * todo : take all product from redux
+   * todo : HandleCartItem funtion implement
+   * @param({item:{object}})
+   *
    */
-  const { TotalAmount, totoalCartItem, CartTtem } = useSelector(
-    (state) => state.cart,
-  );
 
-  const handleCartChange = () => {
-    navigate("/cart");
-  };
-
-  useEffect(() => {
-    dispatch(getTotal());
-  }, [CartTtem]);
-
-  /**
-   * todo : handleCancelCartItem funtionality
-   * @param({item})
-   */
-  const handleCancelCartItem = (event, item) => {
-    console.log(CartRef.current.contains(event.target));
-    if (CartRef.current.contains(event.target)) {
-      setcart(false);
-    }
+  const HandleCartItem = (item) => {
+    setcart(true);
+    dispatch(RemoveItemCart(item));
   };
   return (
     <>
@@ -158,8 +167,8 @@ const MenuBar = () => {
                   }`}
                 >
                   <div
-                    className="h-[50vh] overflow-y-scroll scrollbar-thin scrollbar-track-secondary_bg_color scrollbar-thumb-main_font_color"
                     ref={CartRef}
+                    className="h-[50vh] overflow-y-scroll scrollbar-thin scrollbar-track-secondary_bg_color scrollbar-thumb-main_font_color"
                   >
                     {CartTtem?.map((item) => (
                       <div className="flex items-center justify-around py-5">
@@ -181,11 +190,9 @@ const MenuBar = () => {
 
                         <div
                           className="text-main_font_color"
-                          onClick={(event) => handleCancelCartItem(event, item)}
+                          onClick={() => HandleCartItem(item)}
                         >
-                          <span>
-                            <RxCross2 />
-                          </span>
+                          <RxCross2 />
                         </div>
                       </div>
                     ))}

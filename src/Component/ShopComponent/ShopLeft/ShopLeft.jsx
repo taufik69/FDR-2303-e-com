@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   catagories,
   shopByColor,
@@ -7,11 +7,23 @@ import {
 } from "../../../../Data/Data.js";
 import ShopCatagories from "../../CommonConponent/ShopLeftitem/ShopCatagories";
 import ShopByColor from "../../CommonConponent/ShopLeftitem/ShopByColor.jsx";
+import { useSelector } from "react-redux";
+
 const ShopLeft = ({ className }) => {
+  let products = useSelector((state) => state.prouduct);
+  let par = products?.data?.payload?.products || [];
+  let Catagoryarr = [];
+  par.filter((item) => {
+    Catagoryarr.some((cata) => cata.category == item.category)
+      ? null
+      : Catagoryarr.push(item);
+  });
+
+
   return (
     <div className={className}>
       <ShopCatagories
-        catagoresData={catagories ? catagories : []}
+        catagoresData={Catagoryarr ? Catagoryarr : []}
         shopLeftTitle={"Shop by Category"}
       />
       <ShopByColor
