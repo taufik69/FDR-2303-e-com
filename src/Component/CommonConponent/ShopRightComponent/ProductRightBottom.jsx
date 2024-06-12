@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Product from "../Product";
-import p3 from "../../../assets/p3.png";
+
 import Button from "../Button";
+import { useSelector } from "react-redux";
 
 const ProductRightBottom = () => {
   const [product, setProducts] = useState([]);
@@ -15,6 +16,8 @@ const ProductRightBottom = () => {
 
     DataFetcher();
   }, []);
+  const x = useSelector((state) => state.product);
+  console.log(x);
 
   console.log(product);
   return (
@@ -27,7 +30,7 @@ const ProductRightBottom = () => {
             bagze={
               <Button
                 title={"New"}
-                className={"py-2 px-8 bg-black text-white "}
+                className={"bg-black px-8 py-2 text-white "}
               />
             }
           />
