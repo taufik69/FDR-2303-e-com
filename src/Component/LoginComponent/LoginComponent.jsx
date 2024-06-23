@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import login from "../../assets/login.gif";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ErrorMessage, SucessMessage, checkEmail } from "../../../utils/Utils";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { DNA } from "react-loader-spinner";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 const LoginComponent = () => {
   const auth = getAuth();
+  const navigate = useNavigate();
+  const [loading, setloading] = useState(false);
   const [loginUser, setloginUser] = useState({
     email: "",
     password: "",
@@ -27,13 +34,25 @@ const LoginComponent = () => {
     } else if (!password) {
       ErrorMessage("Your password is Not Valid", "top-center");
     } else {
+      setloading(true);
       signInWithEmailAndPassword(auth, email, password)
         .then((userInfo) => {
-          console.log(userInfo);
-          SucessMessage("Everyting is ok");
+          onAuthStateChanged(auth, (user) => {
+            if (user.emailVerified) {
+              navigate("/chekout");
+            } else {
+              ErrorMessage(
+                `${user.email} Is Not Verified Please check Your Email`,
+                "top-center",
+              );
+            }
+          });
         })
         .catch((err) => {
-          ErrorMessage(err.message, "top-center");
+          ErrorMessage(err.code, "top-center");
+        })
+        .finally(() => {
+          setloading(false);
         });
     }
   };
@@ -100,7 +119,18 @@ const LoginComponent = () => {
                 className="mt-6 block w-full rounded-lg bg-indigo-500 px-4 py-3 font-semibold
               text-white hover:bg-indigo-400 focus:bg-indigo-400"
               >
-                Log In
+                {loading ? (
+                  <span className="flex justify-center">
+                    <DNA
+                      visible={true}
+                      height="30"
+                      width="100"
+                      ariaLabel="dna-loading"
+                    />
+                  </span>
+                ) : (
+                  "Log In"
+                )}
               </button>
             </form>
 

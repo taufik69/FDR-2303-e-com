@@ -6,11 +6,11 @@ import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from "firebase/auth";
-import { toast, Bounce } from "react-toastify";
+
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../../Firebase/FirebaseConfig.js";
 import { Link, useNavigate } from "react-router-dom";
-import { SucessMessage } from "../../../utils/Utils.js";
+import { SucessMessage, ErrorMessage } from "../../../utils/Utils.js";
 
 const Registration = () => {
   const auth = getAuth();
@@ -160,7 +160,8 @@ const Registration = () => {
           SucessMessage(`${userInfo.FirstName} Registration Done`);
         })
         .then(() => {
-          addDoc(collection(db, "users/"), userInfo)
+          console.log("hello");
+          addDoc(collection(db, "users"), userInfo)
             .then((userCrend) => {
               sendEmailVerification(auth.currentUser).then(() => {
                 SucessMessage(`${userInfo.FirstName} Check Your Email Inbox`);
@@ -176,17 +177,7 @@ const Registration = () => {
             });
         })
         .catch((err) => {
-          toast.error(`${err.code}`, {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-          });
+          ErrorMessage(`${err.code}`, "top-center");
         })
         .finally(() => {
           setloading(false);

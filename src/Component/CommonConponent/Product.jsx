@@ -59,7 +59,10 @@ const Product = ({
       </div>
       <Flex className={"justify-between pr-4"}>
         <h3>{productName ? productName : "Basic Crew Neck Tee"}</h3>
-        <p> {procutPrice ? `$${procutPrice}` : "$44.00"}</p>
+        <p>
+          {" "}
+          {procutPrice ? `$${parseFloat(procutPrice.toFixed(1))}` : "$44.00"}
+        </p>
       </Flex>
       {colorVariant && <span>Black</span>}
     </div>

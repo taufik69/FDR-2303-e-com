@@ -43,6 +43,7 @@ function ErrorMessage(
     draggable: true,
     progress: undefined,
     theme: "light",
+    style: { width: "500px" },
     transition: Bounce,
   });
 }
