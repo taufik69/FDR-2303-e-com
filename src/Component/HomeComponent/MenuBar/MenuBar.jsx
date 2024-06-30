@@ -83,6 +83,14 @@ const MenuBar = () => {
     setcart(true);
     dispatch(RemoveItemCart(item));
   };
+  /**
+   * todo HanldeSearch funtion implenmentiation
+   * params({event})
+   */
+
+  const HanldeSearch = (event) => {
+    console.log(event.target.value);
+  };
   return (
     <>
       <div className="px-sm-0 bg-secondary_bg_color px-4 py-5" ref={MenuRef}>
@@ -126,7 +134,8 @@ const MenuBar = () => {
                 </ul>
               </div>
             </Flex>
-            <Serach placeHolder="Search Products" />
+            {/* search funtion */}
+            <Serach placeHolder="Search Products" onSearch={HanldeSearch} />
 
             <Flex className={"gap-x-5"}>
               <div onClick={HandleAccount}>
