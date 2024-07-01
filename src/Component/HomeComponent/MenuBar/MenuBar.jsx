@@ -12,6 +12,7 @@ import {
   getTotal,
   RemoveItemCart,
 } from "../../../Redux/AllSlice/AddToCart/AddtocartSlice.js";
+import SearchResult from "../../CommonConponent/SeachResult/SearchResult.jsx";
 
 const MenuBar = () => {
   const [showCatagories, setshowCatagories] = useState(false);
@@ -83,17 +84,53 @@ const MenuBar = () => {
     setcart(true);
     dispatch(RemoveItemCart(item));
   };
+  const [allproducts, setallproducts] = useState([]);
+  const [searchResult, setsearchResult] = useState([]);
+  const [searchInput, setsearchInput] = useState("");
+  /**
+   * todo: Takes a product data from store
+   */
+  const { data, status } = useSelector((state) => state.prouduct);
+
+  useEffect(() => {
+    if (status.payload === "IDLE") {
+      setallproducts(data.payload.products);
+    }
+  }, [status.payload, data.payload]);
   /**
    * todo HanldeSearch funtion implenmentiation
    * params({event})
    */
-
-  const HanldeSearch = (event) => {
-    console.log(event.target.value);
+  const handleSearch = (event) => {
+    const { value } = event.target;
+    setsearchInput(value);
+    if (searchInput) {
+      const searchResult = allproducts.filter((product) =>
+        product.title.toLowerCase().includes(searchInput.toLowerCase()),
+      );
+      setsearchResult(searchResult);
+    } else {
+      setsearchResult([]);
+    }
   };
+
+  /**
+   * todo : handleGoSearchProduct funtion implement
+   * @param({id})
+   */
+
+  const handleGoSearchProduct = (productId) => {
+    setsearchInput("");
+    setsearchResult([]);
+    navigate(`/product-details/${productId}`);
+  };
+
   return (
     <>
-      <div className="px-sm-0 bg-secondary_bg_color px-4 py-5" ref={MenuRef}>
+      <div
+        className="px-sm-0 relative bg-secondary_bg_color px-4 py-5"
+        ref={MenuRef}
+      >
         <div className="container">
           <Flex className={"items-center justify-between gap-x-3"}>
             <Flex className={"gap-x-2"}>
@@ -135,8 +172,20 @@ const MenuBar = () => {
               </div>
             </Flex>
             {/* search funtion */}
-            <Serach placeHolder="Search Products" onSearch={HanldeSearch} />
-
+            <Serach
+              placeHolder="Search Products"
+              onSearch={handleSearch}
+              searchInput={searchInput}
+            />
+            {searchResult.length > 0 && (
+              <SearchResult
+                className={
+                  "absolute left-[28%] top-[100%] z-10 w-[37%] bg-gray-200 px-5 py-3"
+                }
+                searchResult={searchResult}
+                onToProduct={handleGoSearchProduct}
+              />
+            )}
             <Flex className={"gap-x-5"}>
               <div onClick={HandleAccount}>
                 <Flex className={"cursor-pointer items-center gap-x-2"}>
