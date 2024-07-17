@@ -16,6 +16,7 @@ import Cart from "./pages/Cart/Cart";
 import Contact from "./pages/Contact/Contact";
 import Login from "./pages/Login/Login";
 import Chekout from "./pages/Checkout/Chekout";
+import MyAcount from "./pages/Myaccount/MyAcount";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
         <Route path="/registration" element={<Registration />}></Route>,
         <Route path="/login" element={<Login />}></Route>
         <Route path="/chekout" element={<Chekout />}></Route>
+        <Route path="/account" element={<MyAcount />}></Route>
         <Route
           path="/*"
           element={<h1 className="text-red-500"> error is here</h1>}

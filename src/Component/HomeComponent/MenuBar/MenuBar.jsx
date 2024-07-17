@@ -8,6 +8,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
 import Button from "../../CommonConponent/Button.jsx";
 import { useDispatch, useSelector } from "react-redux";
+import { getAuth, signOut } from "firebase/auth";
+
 import {
   getTotal,
   RemoveItemCart,
@@ -18,8 +20,11 @@ const MenuBar = () => {
   const [showCatagories, setshowCatagories] = useState(false);
   const [showAccount, setshowAccount] = useState(false);
   const [cart, setcart] = useState(false);
+  const auth = getAuth();
+
   const MenuRef = useRef();
   const CartRef = useRef();
+  const acountRef = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   /**
@@ -40,6 +45,10 @@ const MenuBar = () => {
       }
       if (CartRef.current.contains(e.target)) {
         setcart(true);
+      }
+      if (acountRef.current.contains(e.target)) {
+        setshowAccount(true);
+        setcart(false);
       }
     });
     return () => {
@@ -125,6 +134,18 @@ const MenuBar = () => {
     navigate(`/product-details/${productId}`);
   };
 
+  // log out
+  const hanldeLogOut = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/login");
+        setshowAccount(false);
+      })
+      .catch((error) => {
+        console.error("error from log out");
+      });
+  };
+
   return (
     <>
       <div
@@ -195,17 +216,17 @@ const MenuBar = () => {
                   <div>{showAccount ? <FaChevronUp /> : <FaChevronDown />}</div>
                 </Flex>
 
-                <div>
+                <div ref={acountRef}>
                   <ul
-                    className={`absolute left-[-100%] top-[200px] z-10 w-full divide-y  divide-[#ffffff23] bg-black py-4 text-center text-white transition-all  sm:w-[200px] ${
-                      showAccount ? "left-[0%]" : null
+                    className={`absolute left-[-100%] top-[110px] z-10 w-full divide-y  divide-[#ffffff23] bg-black py-4 text-center text-white transition-all  sm:w-[200px] ${
+                      showAccount ? "left-[83%] " : null
                     }`}
                   >
                     <li className="py-4">
                       <Link to={"/"}>My Account</Link>
                     </li>
-                    <li className="py-4">
-                      <Link to={"/"}>Log Out</Link>
+                    <li className="py-4" onClick={hanldeLogOut}>
+                      Log Out
                     </li>
                   </ul>
                 </div>
