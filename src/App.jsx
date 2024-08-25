@@ -17,26 +17,35 @@ import Contact from "./pages/Contact/Contact";
 import Login from "./pages/Login/Login";
 import Chekout from "./pages/Checkout/Chekout";
 import MyAcount from "./pages/Myaccount/MyAcount";
+import IsLoginUser from "./PrivateRoutes/IsLoginUser";
+import IsNotLoginUser from "./PrivateRoutes/IsNotLoginUser";
+import About from "./pages/About/About";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/" element={<RootLayout />}>
-        <Route index element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route
-          path="/product-details/:productId"
-          element={<ProductDetails />}
-        />
-        <Route path="/cart" element={<Cart />} />,
+      <Route element={<IsLoginUser />}>
+        <Route path="/" element={<RootLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/product-details/:productId"
+            element={<ProductDetails />}
+          />
+          <Route path="/cart" element={<Cart />} />,
+          <Route path="/chekout" element={<Chekout />}></Route>
+          <Route path="/account" element={<MyAcount />}></Route>
+          <Route
+            path="/*"
+            element={<h1 className="text-red-500"> error is here</h1>}
+          ></Route>
+        </Route>
+      </Route>
+
+      <Route element={<IsNotLoginUser />}>
         <Route path="/registration" element={<Registration />}></Route>,
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/chekout" element={<Chekout />}></Route>
-        <Route path="/account" element={<MyAcount />}></Route>
-        <Route
-          path="/*"
-          element={<h1 className="text-red-500"> error is here</h1>}
-        ></Route>
       </Route>
     </Route>,
   ),

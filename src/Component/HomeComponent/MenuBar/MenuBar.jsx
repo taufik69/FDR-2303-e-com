@@ -223,7 +223,7 @@ const MenuBar = () => {
                     }`}
                   >
                     <li className="py-4">
-                      <Link to={"/"}>My Account</Link>
+                      <Link to={"/about"}>My Account</Link>
                     </li>
                     <li className="py-4" onClick={hanldeLogOut}>
                       Log Out

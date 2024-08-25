@@ -3,13 +3,18 @@ import login from "../../assets/login.gif";
 import { Link, useNavigate } from "react-router-dom";
 import { ErrorMessage, SucessMessage, checkEmail } from "../../../utils/Utils";
 import { DNA } from "react-loader-spinner";
+import { getDatabase, ref, set } from "firebase/database";
 import {
   getAuth,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
+
 const LoginComponent = () => {
   const auth = getAuth();
+  const db = getDatabase();
   const navigate = useNavigate();
   const [loading, setloading] = useState(false);
   const [loginUser, setloginUser] = useState({
@@ -55,6 +60,39 @@ const LoginComponent = () => {
           setloading(false);
         });
     }
+  };
+
+  /**
+   * todo : login with google
+   */
+
+  const loginWithGoole = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        const { emailVerified, photoUrl, displayName, localId, email } =
+          user?.reloadUserInfo;
+
+        localStorage.setItem("isverified", emailVerified);
+
+        set(ref(db, "users/" + localId), {
+          userUid: localId,
+          userName: displayName,
+          userEmail: email,
+          emailVerified: emailVerified,
+          profile_picture: photoUrl,
+        }).then(() => {
+          navigate("/");
+        });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(errorCode);
+      });
   };
   return (
     <div>
@@ -139,6 +177,7 @@ const LoginComponent = () => {
             <button
               type="button"
               className="block w-full rounded-lg border border-gray-300 bg-white px-4 py-3 font-semibold text-gray-900 hover:bg-gray-100 focus:bg-gray-100"
+              onClick={loginWithGoole}
             >
               <div className="flex items-center justify-center">
                 <span className="ml-4">Log in with Google</span>
